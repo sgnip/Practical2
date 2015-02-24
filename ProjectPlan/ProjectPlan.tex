@@ -1,0 +1,49 @@
+\documentclass{report}
+
+\usepackage{fancyhdr} % Cabeceras de página
+\usepackage{lastpage} % Módulo para añadir una referencia a la última página
+\usepackage{titling} % No tengo claro para qué es esto
+\usepackage[left=3cm,right=2.5cm,top=3cm,bottom=2cm]{geometry} % Márgenes
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage[official]{eurosym}
+
+\hypersetup{
+  	hyperindex,
+    colorlinks,
+    allcolors=blue!60!black
+}
+
+
+\setcounter{secnumdepth}{3}
+
+
+\title{UAM Software Notification and Damage Management System \\ Project Plan}
+\date{\today}
+\author{{\Large Triforce} \\ \vspace{5pt} \textit{Iván Márquez Pardo, Víctor de Juan Sanz, Guillermo Julián Moreno}}
+
+\fancyhf{}
+\fancypagestyle{plain}{%
+	\lhead{\small \itshape Project Plan \, -\, \thedate\, -\, SEPRO}
+	\rhead{\vspace{-20pt} \includegraphics[width =40 pt]{../Logo.jpg}}
+	\cfoot{\thepage\ of \pageref{LastPage}}
+	\rfoot{}
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\pagestyle{plain}
+
+\chapter{Requirements and subsystems}
+\chapter{System size estimation}
+\chapter{Project plan}
+
+\end{document}
