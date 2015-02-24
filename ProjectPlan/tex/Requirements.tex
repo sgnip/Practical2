@@ -1,1 +1,157 @@
 % -*- root: ../ProjectPlan.tex -*-
+
+Before we start defining FML's requirements we need to define two things, the \textbf{roles} inside FML and the \textbf{Operating environment} in which FML will work.
+
+
+\label{chapRequirements}
+\section{Roles}
+
+\paragraph{Reporter role} \label{ReporterRole} This is the role applied to anyone who want to report some fault. It will be taken into account the person's status inside UAM community (student, PhD, teacher, maintenance technician, etc). Every user in FML's system will be able to report faults.
+
+\paragraph{Maintenance Personnel} \label{MaintenancePersonnel}
+
+These are the roles applied to people in charge of maintenance. Inside maintenance personnel we need to distinguish 2 subcategories:
+
+\begin{itemize}
+\item Boss: The people in charge of each department.
+\item Maintenance technician: The maintenance personnel responsible to fix the faults.
+\end{itemize}
+
+As there are 8 departments, there will be 8 categories, listed below:
+
+\begin{itemize}
+\item Heating.
+\item Plumbing.
+\item Air conditioning.
+\item Cleaning.
+\item Information Technologies.
+\item Elevators.
+\item Electricity.
+\item Trash Collection.
+\item Gardeners.
+\end{itemize}
+
+Each maintenance person should be tagged in, at least, 1 department. It is also compatible being boss and technician.
+
+\paragraph{Exceptions} The \textbf{cleaning department} only needs a person in charge of the whole department and it is his responsibility to assign faults to their employees and to mark faults as solved.
+
+This department is also special because there is a different department in each faculty, so the must be at least 1 person in charge of each faculty cleaning department. As we mentioned before, maintenance personnel can also report faults.
+
+\paragraph{Administrator Role} Is the person (or group of people) in charge of UAM's maintenance system in general. Every administrator will have permissions to change everything within the application, as they are in charge of everything related with maintenance.
+
+\section{Operating environment}
+
+The main component of Fault Manager Lite is the application, HTML based, that will run in PCs, tablets and smartphones. To improve usability and integration with operating systems, a native application wrapping the HTML interface will be developed so the users won't need to run the browser in order to access the application.
+
+The system will require a backend exposing a RESTful API to which the HTML clients will connect. Separation of concerns is important in order to improve maintainability and ability to respond quickly to user feedback.
+
+The server will require an installation of Python 3, and a working connection to a SQL server. Our application will be independent of the specific implementation of the server (database maintenance will be responsibility of the devops\footnote{I.e., the University's IT team.} team).
+
+Specific implementation details are out of the scope of this proposal, but we will develop the application with scalability in mind: the interface, API and database applications will be independent and loosely coupled in order for the devops team to deploy each one to as many machines as needed. Cloud deployments are an option, but is not required (actually, we recommend using the university datacenter in order to comply with spanish privacy laws).
+
+\section{Requirements}
+
+\subsection{Functional requirements}
+
+\subsubsection{Task Manager subsystem}
+
+\paragraph{Faults definition} Each fault will have 3 possible states: \textit{Pending to assign, assigned, solved}.
+
+If a fault is impossible to be fixed, it will correspond to the administrator to take care personally of it.
+
+
+\paragraph{Categorizing faults} There should be categories to tag each fault depending on the priority (low, medium or high) and the department who needs to take care of it. The system will assign automatically a priority to each fault, although the administrators will be able to change it at any point in time.
+
+\paragraph{Fault's assignments} FML will assign to maintenance personnel faults to be fixed (depending on the fault's category and maintenance person load of work and capability to solve the fault)
+
+This will be set automatically and the system's administrators will be able to reassign the faults as they pleased.
+
+The person in charge of a department will also be able to reassign faults that have been assigned to his department or to someone inside his department to his employees.
+
+As we mentioned before, the cleaning departments are special, because all cleaning faults in a building will be assign to the person in charge of that building's cleaning.
+
+
+\paragraph{Task managing} Everyone from the maintenance personnel will have read access to the faults data base through a Graphical User Interface (GUI).
+
+They will just have write access to faults they have been assigned to. \footnote{Write access is needed so the maintenance person change fault's state to \textit{solved} or to \textit{in progress}}
+
+Admin will have write access to all faults in the system, and the person in charge of a department will have write access to all faults assigned to someone inside his department.
+
+\paragraph{When a fault is fixed} The maintenance person assigned (or the manager of that department) will mark as solved the fault. At that time, the reporter will get notify and thanked.
+
+
+\subsubsection{Report subsystem}
+
+\paragraph{Reporting a fault} Our system will allow:
+
+\begin{itemize}
+\item Reporting a fault with the following information: \textit{Location, date, priority\footnote{The actual priority will be set automatically taking into account this priority, the one reported by the user, and other parameters, such as the user's history of reports.}, category, photograph (optional) and description}.
+
+\item See and check reported faults and see its state.
+
+\item Answer questions the maintenance personnel will ask about the reported fault.
+\end{itemize}
+
+
+\paragraph{Duplicated faults} This is a big problem to be solved. What we propose to solve it has 2 aspects.
+\begin{itemize}
+\item FML will be able to mark as \textit{possible duplicated}, so all possible duplicates will be assign to the same maintenance people, so he can verify if they are duplicated or not.
+
+\item On the other side, to prevent duplicated faults reports, FML will show a message showing possible duplicated faults to the reporter. If the reporter marks the fault he is reporting as duplicated, he will earn some points too and will be added into the list of people to be notified when the task is solved.
+\end{itemize}
+
+
+\subsubsection{Communication subsystem - Notifications and messaging}
+
+\paragraph{Communication} Maintenance person assigned to fix a fault should be able to ask the fault's reporter for more information.
+
+\paragraph{Notifications} All users of the application are able to send an emergency notification which, once revised by the administrator, will appear on the noticeboard of the application of all other users specifying the type of emergency and its location. Among these emergencies, we can find fires or blackouts.
+
+\subsubsection{Users and Profile manager system}
+
+\paragraph{Log in} Everyone must be able to login using UAM credentials. We will use the service provide by UAM to authenticate an user.
+
+If the user is logging in on a smartphone, the system shouldn't ask for the password more than once (except for some specific operations defined in the role-depending requirements, user role category (\ref{Specifics_Secure_Requirements_for_user}))
+
+\paragraph{Updating profile} What if a student become a teacher and then his email needs to be changed? To fix this, every user must be able to update his profile's information.
+
+
+\subsubsection{Faults History}
+
+\paragraph{Seeing history} As we think transparency is really important, every reporter will be able to see all history of faults. In non-functional requirements we define how this should be done.
+
+\paragraph{Statistics} In the profile page each user should be able to see the faults he has reported and it's state.
+
+Plus, he should be able to see his conversations with maintenance personnel.
+
+
+\subsection{Non-Functional}
+
+\subsubsection{General Requirements}
+
+This requirements are defined for all roles inside FML (Administrator, maintenance personnel and user)
+
+\paragraph{Profile} Everyone should have a profile with some private information such as name or email.
+
+\paragraph{Lightweight application} FML will be lightweight enough to run in 4 years old Chrome, Firefox, IE's versions.
+
+\paragraph{Read Access to task} Every FML's user will be able to see all reported faults (we think transparency is really important). This will be shown on a map of the UAM. Each fault will appear as an arrow pointing to fault's location and color-tagged depending on its state (solved, pending, assigned).
+
+\subsubsection{Role-depending requirements}
+
+\paragraph{Reporter} FML should provide users the following abilities:
+\begin{itemize}
+\item The specifics requirements where re-authentication is needed are: \textit{Answering questions asked by maintenance personnel}   \label{Specifics_Secure_Requirements_for_user} and \textit{updating profile information}.
+\item The interface to report a fault should be easy enough to let the user report the fault without losing much time.
+\item The amount of points earned should be visible inside profiles page. It will be also shown the conversion in ECTS credits so the user knows how much he have earned.
+
+\end{itemize}
+
+\paragraph{Administrator} The administrator should be able to
+
+\begin{itemize}
+\item Change the role of a maintenance person.
+\item Remove permissions (fault reporting, messaging and/or read access to the fault list) from any user that has misused the application in order to prevent him from misbehaving.
+\item Restore permissions (fault reporting, messaging and/or read access to the fault list) to any user that was previously deprived of them.
+\item When banning a user, the administrator may choose a period of time: one week, one month, three months, one year, infinite. Once that period has passed, the user will automatically recover his/her permissions.
+\end{itemize}
