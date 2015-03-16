@@ -1,0 +1,176 @@
+% -*- root: ../ProjectPlan.tex -*-
+
+\newcounter{reqs}[chapter]
+\newcommand{\header}[1]{\\ \indent \textbf{#1}\hspace{10pt}}
+
+\newcommand{\reqdesc}{\subparagraph{Description}}
+\newcommand{\reqin}{\subparagraph{Input data}}
+\newcommand{\reqout}{\subparagraph{Output data}}
+\newcommand{\reqsteps}{\subparagraph{Steps}}
+
+\newenvironment{requirement}[1]{
+	\stepcounter{reqs}
+	\subsection{Requirement \Alph{reqs} - #1}
+}{\vspace{20pt}}
+
+
+\begin{requirement}{Visualize new notices of incidences}
+
+\reqdesc Managers will be able to see new notices of incidences that have not been assigned yet, in order to revise their correctness.
+
+\reqin Function triggered manually by the manager by pressing its selecting its corresponding option.
+
+\reqsteps Depending on the department the manager is in charge of, the system will look in the fault database for new notices of incidences of that department that are still not solved nor assigned to any technician.
+
+\reqout The system will display a list of incidence reports. Information about each report will also be shown to see their correctness.
+
+\end{requirement}
+
+
+\begin{requirement}{Modify notices of incidences}
+
+\reqdesc Managers will be able to modify reports of incidences for their departments in order to correct any mistake or complete gaps in the forms.
+
+\reqin The manager will be able to change any of the fields (excepto for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: title, description, location (in case automatic allocation has failed), classification and priority. Confirmation will be needed to save changes.
+
+\reqsteps The system will update in the faults database the data given/modified by the manager. All the modifications of the report will be done within a transaction, and only be applied if the manager confirms so when he/she finishes the process.
+
+\reqout Changes on the fault database will be committed becoming permanent (successful transaction) and the manager will be notified with a confirmation message on the screen.
+
+\end{requirement}
+
+
+\begin{requirement}{Assign incidences}
+
+\reqdesc Managers of each department will be able to assign the reparation of incidences to technical members of their department.
+
+\reqin The manager will have to introduce the identifier of the fault report and the name/identifier of the technician that will fix that fault.
+
+\reqsteps The system will look for the technician in the staff database and for the fault report in the faults database. The status of the fault will be changed from 'Pending' to 'Assigned' and the fault will now be related to its technician.
+
+\reqout A confirmation message will be shown to the manager and the technician will receive a notification of the new task he/she has to fix.
+
+\end{requirement}
+
+
+\begin{requirement}{Show to a manager the list of members of his/her technical staff}
+
+\reqdesc Managers will be able to visualize an interactive list of members of the technical staff they are in charge of. The list will be interactive in the sense that the manager would be able to see more information about an specific technician (see next requirement).
+
+\reqin The manager has to introduce the name and/or the numeric identifier of the technician whose statistics and profile wants to see. Then, the manager will have to select one from the results of the search done.
+
+\reqsteps The system will use the criteria introduced by the manager to look for employees that match them. Then, it will show a list of the matchings and once the manager has chosen one of the list, the system will gather the corresponding information from the staff database (profile info) and the fault database (in order to generate statistics about the chosen technician).
+
+\reqout The system will show the manager the profile of the selected technician. In addition, it will also generate some statistics related to the labour performed by that technician.
+
+\end{requirement}
+
+
+\begin{requirement}{Show detailed information about a technician}
+
+\reqdesc Managers will have available to get more information about any of the technicians that are members of their departments.This information will be in the form of statistics and profiles of the corresponding technicians.
+
+\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see previous) whose statistics and profile wants to see. 
+
+\reqsteps The system will retrieve the corresponding information about this technician from the staff database (personal and contact information) and the fault database (tasks assigned and solved tasks in order to generate statistics about his/her performance). The statistics generated will include information about (at least) his/her average working time, effectiveness and most common tasks solved.
+
+\reqout The system will show the manager the profile of the selected technician. In addition, it will also generate some statistics related to the labour performed by that technician. This information will be given to the manager in the form of a report.
+
+\end{requirement}
+
+
+\begin{requirement}{Get report of incidences}
+
+\reqdesc Managers will have access to a report on incidences. On one hand this report will show the incidences that are not solved or those that are being solved in order of priority. On the other hand, the incidences report will show in a similar way the last incidences that have been solved, sorted by
+their resolution date.
+
+\reqin The manager will trigger this action by selecting its corresponding option.
+
+\reqsteps The system will look into the faults database for fault reports that are not solved or they are being solved at the moment, and will order the results by priority. Then, in the same database, the system will filter by reports already solved and order them by resolution date. With these two sets of results, an interactive report will be produced.
+
+\reqout The system will show the manager the report produced by his/her request. This report is interactive in the sense that the manager can select one of the faults to see its characteristics.
+
+\end{requirement}
+
+
+\begin{requirement}{Consult extended information about an incidence on the report}
+
+\reqdesc Managers will be able to consult extended information on each of the incidences that appear in the report of incidences.
+
+\reqin Report of incidences produced by the system. The manager will have to select one of the incidences of the report to see detailed information about it.
+
+\reqsteps The system will look into the faults database for the selected fault, gather all the information related to it and show it to the manager.
+
+\reqout The system will show the manager a new screen with detailed information about the incidence he/she has selected in the report.
+
+\end{requirement}
+
+
+\begin{requirement}{Print reports/screens}
+
+\reqdesc All the reports generated by the application will be printable. This also applies to new screens that the application opens in order to show any requested information.
+
+\reqin Report or screen that the system has generated or opened by the request of an user.
+
+\reqsteps The system will convert the report or the screen to a PDF document and send it to the printer.
+
+\reqout The printed document.
+
+\end{requirement}
+
+
+\begin{requirement}{Visualize history of tasks}
+
+\reqdesc Managers will be able to visualize the complete
+history of tasks in a table where each row represents an incidence.
+
+\reqin The manager will trigger this function by selecting its corresponding option.
+
+\reqsteps The system will access the incidences database in order to retrieve information about all the faults reported and show it to the manager. By default, the tasks will be ordered by date.
+
+\reqout The system will display in the screen a table containing all the incidences reported until that moment.
+
+\end{requirement}
+
+
+\begin{requirement}{Sort history of tasks}
+
+\reqdesc Managers will be able to sort the history of tasks depending of different criteria chosen by the manager. This sorting criteria includes at least: priority, category, date, state.
+
+\reqin The complete history of tasks has been previously retrieved. The manager will have to choose a criteria among the list given above.
+
+\reqsteps The system will take the results of the history of tasks it has previously retrieved and order them by the chosen criteria.
+
+\reqout The system will display in the screen a table containing all the incidences sorted in the requested order.
+
+\end{requirement}
+
+
+\begin{requirement}{Generate statistics about incidences}
+
+\reqdesc Managers will be able to get statistics related to the tasks and to their related areas will be available in order to
+detect problematic areas or departments.
+
+\reqin The manager will trigger this function by selecting its corresponding option.
+
+\reqsteps The system will take all the information about incidences stored in the incidences database in order to analyze it and generate some statistics about them. Relevant information for the statistics will be the category, priority and location of tasks. Statistics will also take into account the costs of the repairs and the time elapsed from the detection of a fault until it has been solved (statistics about effectiveness and efficiency of fault troubleshooting).
+
+\reqout A report containing the statistics generated will be shown to the manager.
+
+\end{requirement}
+
+
+
+\begin{requirement}{Consult user guide}
+
+\reqdesc All the users of the application will have access to a user guide of the software organized as a Wiki system. 
+
+\reqin Users will trigger this function by selecting its corresponding option and choosing a topic from the list or introducing a filtering criteria. 
+
+\reqsteps The system will gether and display the documentation requested by the user and apply any filter criteria introduced by the user (i.e. look for key words in all topics). The documentation will be organized as a Wiki system, including key points, basic manuals and FAQs.
+
+\reqout The system will show the documentation of the software that the user has requested or searched in the Wiki system.
+
+\end{requirement}
+
+
