@@ -1,0 +1,63 @@
+
+The system provides a priorities categorization manager which shows the whole list of categories with their assigned priority. 
+
+\begin{requirement}{Filtering list of categories}
+\reqdesc The system must allow to search and filter from the category and priority list.
+
+\reqin Value to be searched in the whole list.
+
+\reqout The list filtered by the value given.
+\end{requirement}
+
+
+\begin{requirement}{Add new categories}
+\reqdesc  The system must allow to add new categories.
+\reqin New category to be created.
+\reqout OK or Error message.
+\reqsteps Assure the category does not exist previously.
+\end{requirement}
+
+\begin{requirement}{Delete categories}
+\reqdesc  The system must allow to delete categories.
+\reqin Category to be deleted.
+\reqout OK or Error message.
+\end{requirement}
+
+
+\begin{requirement}{Modifying stored values}
+\reqdesc The system must allow to modify stored values in all attributes
+\reqin
+\begin{itemize}
+\item The attribute to be modified 
+\item The new value to be stored.
+\end{itemize}
+
+\reqout OK or Error message.
+\end{requirement}
+
+
+\begin{requirement}{List all reports}
+\reqdesc The system must allow listing all reported faults.
+\reqin Nothing or Category and/or priority to be filtered by.
+\reqout List of the reports matching with given values.
+\end{requirement}
+
+\begin{requirement}{Consult single report}
+\reqdesc The system must allow consulting an single report's aspects.
+\reqin Selection of a report.
+\reqout The information stored of the selected report.
+\end{requirement}
+
+\begin{requirement}{Modify single report's priority}
+\reqdesc The system must allow modifying the priority given to a single report.
+\reqin \begin{itemize}
+\item The report to be updated.
+\item The new priority to be stored.
+\end{itemize}
+\reqout OK or Error message.
+
+\end{requirement}
+
+
+
+
