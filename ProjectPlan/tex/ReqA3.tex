@@ -1,19 +1,5 @@
 % -*- root: ../ProjectPlan.tex -*-
 
-\newcounter{reqs}[chapter]
-\newcommand{\header}[1]{\\ \indent \textbf{#1}\hspace{10pt}}
-
-\newcommand{\reqdesc}{\subparagraph{Description}}
-\newcommand{\reqin}{\subparagraph{Input data}}
-\newcommand{\reqout}{\subparagraph{Output data}}
-\newcommand{\reqsteps}{\subparagraph{Steps}}
-
-\newenvironment{requirement}[1]{
-	\stepcounter{reqs}
-	\subsection{Requirement \Alph{reqs} - #1}
-}{\vspace{20pt}}
-
-
 \begin{requirement}{Visualize new notices of incidences}
 
 \reqdesc Managers will be able to see new notices of incidences that have not been assigned yet, in order to revise their correctness.
@@ -70,7 +56,7 @@
 
 \reqdesc Managers will have available to get more information about any of the technicians that are members of their departments.This information will be in the form of statistics and profiles of the corresponding technicians.
 
-\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see previous) whose statistics and profile wants to see. 
+\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see previous) whose statistics and profile wants to see.
 
 \reqsteps The system will retrieve the corresponding information about this technician from the staff database (personal and contact information) and the fault database (tasks assigned and solved tasks in order to generate statistics about his/her performance). The statistics generated will include information about (at least) his/her average working time, effectiveness and most common tasks solved.
 
@@ -163,9 +149,9 @@ detect problematic areas or departments.
 
 \begin{requirement}{Consult user guide}
 
-\reqdesc All the users of the application will have access to a user guide of the software organized as a Wiki system. 
+\reqdesc All the users of the application will have access to a user guide of the software organized as a Wiki system.
 
-\reqin Users will trigger this function by selecting its corresponding option and choosing a topic from the list or introducing a filtering criteria. 
+\reqin Users will trigger this function by selecting its corresponding option and choosing a topic from the list or introducing a filtering criteria.
 
 \reqsteps The system will gether and display the documentation requested by the user and apply any filter criteria introduced by the user (i.e. look for key words in all topics). The documentation will be organized as a Wiki system, including key points, basic manuals and FAQs.
 
