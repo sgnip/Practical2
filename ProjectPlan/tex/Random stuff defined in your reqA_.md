@@ -7,3 +7,8 @@ If've defined kind of randomly:
 - User object with contact information.
 - Faults are stored into database with fields: **title**, **category**, **priority**, **location object**, **picture**
 - 
+
+
+## Req A4 - Management of priority categorization
+
+- Department chief object

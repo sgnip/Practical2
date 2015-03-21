@@ -2,59 +2,95 @@
 The system provides a priorities categorization manager which shows the whole list of categories with their assigned priority.
 
 \begin{requirement}{Filtering list of categories}
-\reqdesc The system must allow to search and filter from the category and priority list.
-
-\reqin Value to be searched in the whole list.
-
-\reqout The list filtered by the value given.
+\reqdesc The system must allow users to search and filter from the category list.
+\reqin Optional external input:
+\begin{itemize}
+	\item Value to be searched in the whole list.
+\end{itemize}
+\reqout \begin{itemize}
+	\item The list of categories will be shown.
+	\item External Query: the user will be able to filter the list giving values interactively.
+	\item Category object \textbf{if one of the categories} from the list \textbf{is selected}.
+\end{itemize}
 \end{requirement}
 
 
 \begin{requirement}{Add new categories}
-\reqdesc  The system must allow to add new categories.
-\reqin New category to be created.
-\reqout OK or Error message.
-\reqsteps Assure the category does not exist previously.
+\reqdesc  The system must allow administrators to add new categories.
+\reqin \begin{itemize}
+	\item Information needed to create category. This information is given by external inputs:
+		\subitem Title.
+		\subitem Information of department's chief. 
+\end{itemize}
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item if OK:
+		\subitem Department chief object stored into database.
+		\subitem List of categories updated.
+\end{itemize}
+\reqsteps Assure the category does not exist previously before creating it.
 \end{requirement}
 
 \begin{requirement}{Delete categories}
-\reqdesc  The system must allow to delete categories.
-\reqin Category to be deleted.
-\reqout OK or Error message.
+\reqdesc  The system must allow administrators to delete categories.
+\reqin Category object.
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item if OK:
+		\subitem List of categories updated.
+\end{itemize}
 \end{requirement}
 
 
 \begin{requirement}{Modifying stored values}
-\reqdesc The system must allow to modify stored values in all attributes
-\reqin
+\reqdesc The system must allow administrators to modify stored values in all attributes
+\reqin 
 \begin{itemize}
-\item The attribute to be modified
+\item One of the following:
+\subitem Reported fault object
+\subitem User object (including all sub-kinds of user's object such as Department chief's object)
+\item The attribute of the selected object to be modified.
 \item The new value to be stored.
 \end{itemize}
 
-\reqout OK or Error message.
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item External query to select the attribute, because the attribute depends on the object the user wants to modify.
+\end{itemize}
 \end{requirement}
 
 
-\begin{requirement}{List all reports}
+\begin{requirement}{List all reports}\label{A4-ListAllReports}
 \reqdesc The system must allow listing all reported faults.
-\reqin Nothing or Category and/or priority to be filtered by.
-\reqout List of the reports matching with given values.
+\reqin 
+\begin{itemize}
+ 	\item Some (or none) values to filter the list by, such as:
+ 		\subitem Category.
+ 		\subitem Priority.
+ 		\subitem Location.
+ \end{itemize}
+\reqout External \textbf{query}: List of the reports matching with given values, ordered mainly by category and secondly by date. This list can be updated interactively by the user modifying filter values.
+\reqsteps The system will search into the database all reports matching the given values. If a value is changed, the list must be filtered again with the new given values.
 \end{requirement}
 
 \begin{requirement}{Consult single report}
-\reqdesc The system must allow consulting an single report's aspects.
-\reqin Selection of a report.
-\reqout The information stored of the selected report.
+\reqdesc Users will be able to check details of a reported fault from the full list of reports (given by \ref{A4-ListAllReports}).
+\reqin Fault reported object with all information attached.
+\reqout Report showing all the information attached to the object.
 \end{requirement}
 
 \begin{requirement}{Modify single report's priority}
-\reqdesc The system must allow modifying the priority given to a single report.
+\reqdesc The system must allow modifying the priority given to a single report. 
 \reqin \begin{itemize}
 \item The report to be updated.
 \item The new priority to be stored.
 \end{itemize}
-\reqout OK or Error message.
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item New reported fault object with new information modified.
+	\item Updating database with new information.
+	\item Notification to all users related to the task (reporter and maintenance personnel assigned to it)
+\end{itemize}
 
 \end{requirement}
 
