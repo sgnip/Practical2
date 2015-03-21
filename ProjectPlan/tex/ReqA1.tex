@@ -1,54 +1,73 @@
 % -*- root: ../ProjectPlan.tex -*-
 
 \begin{requirement}{Fault's location}
-\reqdesc Get location of the reporter.
-\reqin
+\reqdesc Get the location of the fault, based on the location of the reporter.
+\reqin Two kind of external inputs are necessary for determine location:
 \begin{itemize}
-\item GPS coordinates.
-\item Manually chose location.
+\item Faculty where the fault is located, given by.
+\subitem GPS coordinates (if possible).
+\subitem Manually chose location.
+\item Manually chose floor and room inside the building where the fault is located.
 \end{itemize}
 \reqout Location object.
-\reqsteps Transform GPS coordinates in Location object. If it's not possible to use GPS geolocation, the location will be set manually by the reporter.
+\reqsteps Transform input information into Location object.
 \end{requirement}
 
 \begin{requirement}{Incidences report}
 \reqdesc The system must allow users to report incidences.
-\reqin
+\reqin 
 \begin{itemize}
-	\item Title.
-	\item Description of the problem.
-	\item Location object.
-	\item Picture from gallery or taken on the fly (Optional).
+	\item Compulsory external inputs:
+	\subitem Title.
+	\subitem Category.
+	\item Compulsory internal inputs:
+	\subitem Location object.
+	\item Optional external inputs:
+	\subitem Description of the problem.
+	\subitem Picture from gallery or taken on the fly (Optional).
 \end{itemize}
 \reqout
-
 \begin{itemize}
-	\item Reported object.
+	\item Reported fault object.
 	\item Message to the maintenance personnel.
+	\item Notification to the reporter saying the report has been processed, including a brief summary so the user knows exactly which report has been processed.
 \end{itemize}
-\reqsteps Additional information is added to the object, such us \textit{category}, \textit{priority}.
+\reqsteps The system saves into faults database a new record with additional information is added such as \textit{priority}.
 \end{requirement}
 
-\begin{requirement}{Notify user when processed}
-\reqdesc The user will receive a notification.
-\reqin None.
-\reqout Message to the user saying the report has been processed successfully.
-\end{requirement}
-
-\begin{requirement}{Notify user when solved}
-\reqdesc The user will receive a notification.
-\reqin None.
-\reqout Message to the user saying the report has been solved successfully.
-\end{requirement}
-
-\begin{requirement}{Check history of reported faults}
-\reqdesc Registered users will be able to check their history of reported faults.
+\begin{requirement}{Notification user when the fault has been solved}
+\reqdesc The user will receive a notification when a fault he has reported has been solved.
 \reqin
 \begin{itemize}
-	\item Description of the problem.
-	\item Location.
-	\item Picture (Optional).
+	\item Compulsory internal input:
+ 	\subitem Reported fault object.
+ 	\subitem User object with contact information.
+ \end{itemize}
+\reqout Message to the user saying the fault has been solved successfully, including a brief summary so the user knows exactly which report has been solved.
+\end{requirement}
+
+\begin{requirement}{Select fault to check history}
+\reqdesc Registered users will be able to list the faults they had report and select one of them.
+\reqin Some optional inputs to filter the history by, such as:
+\begin{itemize}
+	\item External:
+	\subitem Text to match with title.
+	\subitem Text to match with description.
+	\subitem Faults per page.
+	\item Internal:
+	\subitem Location object.
+	\subitem Date.
 \end{itemize}
-\reqout
-\reqsteps
+\reqout 
+\begin{itemize}
+	\item External Query:
+	\subitem A list of reported faults ordered by date, containing as much as the number of faults per page given by the user or using the default value.
+\end{itemize}
+\reqsteps The list will be shown and the user can give interactively values to filter the list.
+\end{requirement}
+
+\begin{requirement}{Check history of reported fault}
+\reqdesc Registered users will be able to check details of a reported fault.
+\reqin Fault reported object with all information attached.
+\reqout Report showing all the information attached to the object.
 \end{requirement}
