@@ -28,7 +28,7 @@ The system provides a priorities categorization manager which shows the whole li
 		\subitem Department chief object stored into database.
 		\subitem List of categories updated.
 \end{itemize}
-\reqsteps Assure the category does not exist previously before creating it.
+\reqsteps Assure that the category does not exist previously before creating it.
 \end{requirement}
 
 \begin{requirement}{Delete categories}
@@ -38,24 +38,8 @@ The system provides a priorities categorization manager which shows the whole li
 	\item OK or Error message.
 	\item if OK:
 		\subitem List of categories updated.
-\end{itemize}
-\end{requirement}
-
-
-\begin{requirement}{Modifying stored values}
-\reqdesc The system must allow administrators to modify stored values in all attributes
-\reqin 
-\begin{itemize}
-\item One of the following:
-\subitem Reported fault object
-\subitem User object (including all sub-kinds of user's object such as Department chief's object)
-\item The attribute of the selected object to be modified.
-\item The new value to be stored.
-\end{itemize}
-
-\reqout \begin{itemize}
-	\item OK or Error message.
-	\item External query to select the attribute, because the attribute depends on the object the user wants to modify.
+		\subitem Updating database with new information (including all task inside that category).
+		\subitem Notification to all users related to the category (maintenance personnel).
 \end{itemize}
 \end{requirement}
 
@@ -87,12 +71,31 @@ The system provides a priorities categorization manager which shows the whole li
 \end{itemize}
 \reqout \begin{itemize}
 	\item OK or Error message.
-	\item New reported fault object with new information modified.
-	\item Updating database with new information.
-	\item Notification to all users related to the task (reporter and maintenance personnel assigned to it)
+	\item If OK:
+	\subitem New reported fault object with new information modified.
+	\subitem Updating database with new information.
+	\subitem Notification to all users related to the task (reporter and maintenance personnel assigned to it)
 \end{itemize}
 
 \end{requirement}
+
+\begin{requirement}{Modifying category stored values and its priority}
+\reqdesc The system must allow administrators to modify categories attributes and its priority stored.
+\reqin 
+\begin{itemize}
+\item The attribute of the selected category to be modified.
+\item The new value to be stored.
+\end{itemize}
+
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item If OK:
+	\subitem New reported fault object with new information modified.
+	\subitem Updating database with new information.
+	\subitem Notification to all users related to the task (reporter and maintenance personnel assigned to it)
+\end{itemize}
+\end{requirement}
+
 
 
 

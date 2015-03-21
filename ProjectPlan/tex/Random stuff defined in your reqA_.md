@@ -11,4 +11,4 @@ If've defined kind of randomly:
 
 ## Req A4 - Management of priority categorization
 
-- Department chief object
+- Department chief object (subking of user object).
