@@ -1,0 +1,54 @@
+% -*- root: ../ProjectPlan.tex -*-
+
+\begin{requirement}{Fault's location}
+\reqdesc Get location of the reporter.
+\reqin
+\begin{itemize}
+\item GPS coordinates.
+\item Manually chose location.
+\end{itemize}
+\reqout Location object.
+\reqsteps Transform GPS coordinates in Location object. If it's not possible to use GPS geolocation, the location will be set manually by the reporter.
+\end{requirement}
+
+\begin{requirement}{Incidences report}
+\reqdesc The system must allow users to report incidences.
+\reqin
+\begin{itemize}
+	\item Title.
+	\item Description of the problem.
+	\item Location object.
+	\item Picture from gallery or taken on the fly (Optional).
+\end{itemize}
+\reqout
+
+\begin{itemize}
+	\item Reported object.
+	\item Message to the maintenance personnel.
+\end{itemize}
+\reqsteps Additional information is added to the object, such us \textit{category}, \textit{priority}.
+\end{requirement}
+
+\begin{requirement}{Notify user when processed}
+\reqdesc The user will receive a notification.
+\reqin None.
+\reqout Message to the user saying the report has been processed successfully.
+\end{requirement}
+
+\begin{requirement}{Notify user when solved}
+\reqdesc The user will receive a notification.
+\reqin None.
+\reqout Message to the user saying the report has been solved successfully.
+\end{requirement}
+
+\begin{requirement}{Check history of reported faults}
+\reqdesc Registered users will be able to check their history of reported faults.
+\reqin
+\begin{itemize}
+	\item Description of the problem.
+	\item Location.
+	\item Picture (Optional).
+\end{itemize}
+\reqout
+\reqsteps
+\end{requirement}

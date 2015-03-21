@@ -1,0 +1,75 @@
+% -*- root: ../ProjectPlan.tex -*-
+
+\begin{requirement}{Tracking incidence impact}
+\reqdesc The system must allow internal users with a maintenance personnel profile to check the impact of the incidences.
+
+\reqin The user logs into the system and selects an incidence.
+
+\reqsteps The system retrieves the incidence from the database, specifically the impact saved.
+
+\reqout The user sees the impact of the incidence.
+\end{requirement}
+
+
+\begin{requirement}{Definition of priority criteria}
+\reqdesc The system must allow to specify different criteria to assign automatically a priority to each incidence.
+
+\reqin The user selects parameters of the incidence object and corresponding keywords that will conform the selection criteria, and the desired priority that will be set on match.
+
+\reqsteps The system stores the criteria and applies it automatically on incidence creation in order to establish a priority.
+
+\reqout The system automatically clasifies each incidence based on user-defined criteria: if a certain parameter (e.g., location or description) contains the keywords specificied, the priority will be set to whatever the user specified in the criteria.
+\end{requirement}
+
+
+\begin{requirement}{Management of priorities by personnel in charge}
+\reqdesc The personnel in charge of each section must be able to receive reports and manage the incidences based on that information.
+
+\reqin The maintenance personnel sends messages and incidences to the system.
+
+\reqsteps The system saves all the information and shows them to the personnel in charge.
+
+\reqout The personnel in charge of each section sees all related messags and reports.
+\end{requirement}
+
+
+\begin{requirement}{Changes of incidence state}
+\reqdesc The personnel in charge of each section must be able to change the state (pending, in process, delayed or resolved) of each incidence.
+
+\reqin The personnel in charge inputs the new state of the incidence.
+
+\reqsteps The system saves the new state.
+
+\reqout The incidence has the new state registered.
+\end{requirement}
+
+\begin{requirement}{Changes of incidence category}
+\reqdesc The personnel in charge of each section must be able to change the category of each incidence.
+
+\reqin The personnel in charge inputs the new category of the incidence.
+
+\reqsteps The system saves the new category.
+
+\reqout The incidence has the new category registered.
+\end{requirement}
+
+\begin{requirement}{Changes of incidence category}
+\reqdesc The personnel in charge of each section must be able to change the category of each incidence.
+
+\reqin The personnel in charge inputs the new category of the incidence.
+
+\reqsteps The system saves the new category.
+
+\reqout The incidence has the new category registered.
+\end{requirement}
+
+
+\begin{requirement}{Messaging between users}
+\reqdesc The personnel in charge must be able to message the reporter of the incidence.
+
+\reqin The personnel in charge selects the incidence.
+
+\reqsteps The system connects both users.
+
+\reqout Both users can talk between them.
+\end{requirement}

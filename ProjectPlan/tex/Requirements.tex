@@ -185,140 +185,15 @@ This requirements are defined for all roles inside FML (Administrator, maintenan
 \item When banning a user, the administrator may choose a period of time: one week, one month, three months, one year, infinite. Once that period has passed, the user will automatically recover his/her permissions.
 \end{itemize}
 
-\section{Management of priorities}
-
-\begin{requirement}{Tracking incidence impact}
-\reqdesc The system must allow internal users with a maintenance personnel profile to check the impact of the incidences.
-
-\reqin The user logs into the system and selects an incidence.
-
-\reqsteps The system retrieves the incidence from the database, specifically the impact saved.
-
-\reqout The user sees the impact of the incidence.
-\end{requirement}
 
 
-\begin{requirement}{Definition of priority criteria}
-\reqdesc The system must allow to specify different criteria to assign automatically a priority to each incidence.
+\section{A-1 Notification of incidences}
+\input{tex/ReqA1.tex}
 
-\reqin The user selects parameters of the incidence object and corresponding keywords that will conform the selection criteria, and the desired priority that will be set on match.
+\section{A-2 Management of priorities}
+\input{tex/ReqA2.tex}
 
-\reqsteps The system stores the criteria and applies it automatically on incidence creation in order to establish a priority.
-
-\reqout The system automatically clasifies each incidence based on user-defined criteria: if a certain parameter (e.g., location or description) contains the keywords specificied, the priority will be set to whatever the user specified in the criteria.
-\end{requirement}
-
-
-\begin{requirement}{Management of priorities by personnel in charge}
-\reqdesc The personnel in charge of each section must be able to receive reports and manage the incidences based on that information.
-
-\reqin The maintenance personnel sends messages and incidences to the system.
-
-\reqsteps The system saves all the information and shows them to the personnel in charge.
-
-\reqout The personnel in charge of each section sees all related messags and reports.
-\end{requirement}
-
-
-\begin{requirement}{Changes of incidence state}
-\reqdesc The personnel in charge of each section must be able to change the state (pending, in process, delayed or resolved) of each incidence.
-
-\reqin The personnel in charge inputs the new state of the incidence.
-
-\reqsteps The system saves the new state.
-
-\reqout The incidence has the new state registered.
-\end{requirement}
-
-\begin{requirement}{Changes of incidence category}
-\reqdesc The personnel in charge of each section must be able to change the category of each incidence.
-
-\reqin The personnel in charge inputs the new category of the incidence.
-
-\reqsteps The system saves the new category.
-
-\reqout The incidence has the new category registered.
-\end{requirement}
-
-\begin{requirement}{Changes of incidence category}
-\reqdesc The personnel in charge of each section must be able to change the category of each incidence.
-
-\reqin The personnel in charge inputs the new category of the incidence.
-
-\reqsteps The system saves the new category.
-
-\reqout The incidence has the new category registered.
-\end{requirement}
-
-
-\begin{requirement}{Messaging between users}
-\reqdesc The personnel in charge must be able to message the reporter of the incidence.
-
-\reqin The personnel in charge selects the incidence.
-
-\reqsteps The system connects both users.
-
-\reqout Both users can talk between them.
-\end{requirement}
-
-
-\subsection{A-1 Notification of incidences}
-
-\begin{requirement}{Fault's location}
-\reqdesc Get location of the reporter.
-\reqin
-\begin{itemize}
-\item GPS coordinates.
-\item Manually chose location.
-\end{itemize}
-\reqout Location object.
-\reqsteps Transform GPS coordinates in Location object. If it's not possible to use GPS geolocation, the location will be set manually by the reporter.
-\end{requirement}
-
-\begin{requirement}{Incidences report}
-\reqdesc The system must allow users to report incidences.
-\reqin
-\begin{itemize}
-	\item Title.
-	\item Description of the problem.
-	\item Location object.
-	\item Picture from gallery or taken on the fly (Optional).
-\end{itemize}
-\reqout
-
-\begin{itemize}
-	\item Reported object.
-	\item Message to the maintenance personnel.
-\end{itemize}
-\reqsteps Additional information is added to the object, such us \textit{category}, \textit{priority}.
-\end{requirement}
-
-\begin{requirement}{Notify user when processed}
-\reqdesc The user will receive a notification.
-\reqin None.
-\reqout Message to the user saying the report has been processed successfully.
-\end{requirement}
-
-\begin{requirement}{Notify user when solved}
-\reqdesc The user will receive a notification.
-\reqin None.
-\reqout Message to the user saying the report has been solved successfully.
-\end{requirement}
-
-\begin{requirement}{Check history of reported faults}
-\reqdesc Registered users will be able to check their history of reported faults.
-\reqin
-\begin{itemize}
-	\item Description of the problem.
-	\item Location.
-	\item Picture (Optional).
-\end{itemize}
-\reqout
-\reqsteps
-\end{requirement}
-
-
-\section{A - 3}
+\section{A-3 Supervision of incidences}
 \input{tex/ReqA3.tex}
 
 \section{A-4 Management of priorities Categorization}
