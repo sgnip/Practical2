@@ -9,8 +9,8 @@
 \subitem Manually chose location.
 \item Manually chose floor and room inside the building where the fault is located.
 \end{itemize}
-\reqout Location object.
 \reqsteps Transform input information into Location object.
+\reqout Location object.
 \end{requirement}
 
 \begin{requirement}{Incidences report}
@@ -26,13 +26,13 @@
 	\subitem Description of the problem.
 	\subitem Picture from gallery or taken on the fly (Optional).
 \end{itemize}
+\reqsteps The system saves into faults database a new record with additional information is added such as \textit{priority}.
 \reqout
 \begin{itemize}
 	\item Reported fault object.
 	\item Message to the maintenance personnel.
 	\item Notification to the reporter saying the report has been processed, including a brief summary so the user knows exactly which report has been processed.
 \end{itemize}
-\reqsteps The system saves into faults database a new record with additional information is added such as \textit{priority}.
 \end{requirement}
 
 \begin{requirement}{Notification user when the fault has been solved}
@@ -58,12 +58,12 @@
 	\subitem Location object.
 	\subitem Date.
 \end{itemize}
+\reqsteps The list will be shown and the user can give interactively values to filter the list.
 \reqout 
 \begin{itemize}
 	\item External Query:
 	\subitem A list of reported faults ordered by date, containing as much as the number of faults per page given by the user or using the default value.
 \end{itemize}
-\reqsteps The list will be shown and the user can give interactively values to filter the list.
 \end{requirement}
 
 \begin{requirement}{Check history of reported fault}

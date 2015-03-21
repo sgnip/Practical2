@@ -22,13 +22,13 @@ The system provides a priorities categorization manager which shows the whole li
 		\subitem Title.
 		\subitem Information of department's chief. 
 \end{itemize}
+\reqsteps Assure that the category does not exist previously before creating it.
 \reqout \begin{itemize}
 	\item OK or Error message.
 	\item if OK:
 		\subitem Department chief object stored into database.
 		\subitem List of categories updated.
 \end{itemize}
-\reqsteps Assure that the category does not exist previously before creating it.
 \end{requirement}
 
 \begin{requirement}{Delete categories}
@@ -53,8 +53,8 @@ The system provides a priorities categorization manager which shows the whole li
  		\subitem Priority.
  		\subitem Location.
  \end{itemize}
-\reqout External \textbf{query}: List of the reports matching with given values, ordered mainly by category and secondly by date. This list can be updated interactively by the user modifying filter values.
 \reqsteps The system will search into the database all reports matching the given values. If a value is changed, the list must be filtered again with the new given values.
+\reqout External \textbf{query}: List of the reports matching with given values, ordered mainly by category and secondly by date. This list can be updated interactively by the user modifying filter values.
 \end{requirement}
 
 \begin{requirement}{Consult single report}
