@@ -47,10 +47,11 @@
 \newcommand{\reqsteps}{\reqvertsep\subparagraph{Steps}}
 
 \newenvironment{requirement}[1]{
-	\refstepcounter{reqs}
 	\subsubsection{\textsc{Requirement \arabic{reqs}} - #1}
+	\refstepcounter{reqs}
 }{\vspace{20pt}}
 
+\newcommand{\reqref}[1]{Req. \ref{#1}}
 
 \begin{document}
 \maketitle
