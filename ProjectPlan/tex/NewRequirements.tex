@@ -1,44 +1,44 @@
+% -*- root: ../ProjectPlan.tex -*-
 
 \chapter{Requirements}
+\label{chapRequirements}
+
 The functional and non-functional requirements of the Fault Manager Lite application are gathered in the next sections of the document.
 
-Functional requirements are organized into their corresponding subsystems. If any requirement could depend on two or more subsystems due to the function it performs, then one of those subystems (normally the most influence) will be chosen. 
+Functional requirements are organized into their corresponding subsystems. If any requirement could depend on two or more subsystems due to the function it performs, then one of those subsystems (usually the most relevant) will be chosen.
 
 In a similar way, non-functional requirements are organized into categories attending to their scope.
 
 \section{Functional Requirements}
 
-
-
 \subsection{Task Management}
-
 
 \begin{requirement}{Generate repair task}
 \reqdesc When the report system receives a new fault report, it will analyze the information it contains in order to generate its corresponding repair task. This task will later be automatically assigned to a technician.
 \reqin The fault report sent by an user of the application.
 \reqsteps The system will analyze the information of this fault report and generate its corresponding repair task. That task will be classified depending on its category and priority, and saved in the fault database.
 \reqout The generated repair task, whose status will be 'Pending'.
-\end{requirement} 
+\end{requirement}
 
 \begin{requirement}{Visualize new notices of incidences}
 \reqdesc Managers will be able to see new notices of incidences that have not been assigned yet, in order to revise their correctness.
 \reqin Function triggered manually by the manager by selecting its corresponding option.
 \reqsteps Depending on the department the manager is in charge of, the system will look in the fault database for new notices of incidences of that department that are still not solved nor assigned to any technician.
 \reqout The system will display a list of incidence reports. Information about each report will also be shown to see their correctness.
-\end{requirement} 
+\end{requirement}
 
 \begin{requirement}{Definition of priority criteria}
 \reqdesc The system must allow to specify different criteria to assign automatically a priority to each incidence.
 \reqin The user selects parameters of the incidence object and corresponding keywords that will conform the selection criteria, and the desired priority that will be set on match.
 \reqsteps The system stores the criteria and applies it automatically on incidence creation in order to establish a priority.
-\reqout The system automatically clasifies each incidence based on user-defined criteria: if a certain parameter (e.g., location or description) contains the keywords specificied, the priority will be set to whatever the user specified in the criteria.
+\reqout The system automatically classifies each incidence based on user-defined criteria: if a certain parameter (e.g., location or description) contains the keywords specified, the priority will be set to whatever the user specified in the criteria.
 \end{requirement}
 
 \begin{requirement}{Management of priorities by managers}
 \reqdesc Managers must be able to receive reports and manage the incidences based on the departments they are in charge of.
 \reqin The maintenance personnel sends messages and incidences to the system.
 \reqsteps The system saves all the information and shows them to the personnel in charge.
-\reqout Managers sees all related messags and reports.
+\reqout Managers sees all related messages and reports.
 \end{requirement}
 
 \begin{requirement}{Changes of incidence state}
@@ -58,13 +58,13 @@ In a similar way, non-functional requirements are organized into categories atte
 \begin{requirement}{Reassignment of tasks}
 \reqdesc Managers must be able to change the technician assigned to a repair task.
 \reqin The manager has to select a repair task from his/her department and introduce the identifier of other member of his/her department
-\reqsteps The system will look into de staff database for the identifier of the new technician and update the corresponding field in the selected repair task.
-\reqout Changes in the detabase entry of the repair task will be saved. The new technician will receive a notification of the new task he/she is in charge of; the previous technician will also receive a task cancelling notification.
+\reqsteps The system will look into the staff database for the identifier of the new technician and update the corresponding field in the selected repair task.
+\reqout Changes in the database entry of the repair task will be saved. The new technician will receive a notification of the new task he/she is in charge of; the previous technician will also receive a task canceling notification.
 \end{requirement}
 
 \begin{requirement}{Modify notices of incidences}
 \reqdesc Managers will be able to modify reports of incidences for their departments in order to correct any mistake or complete gaps in the forms.
-\reqin The manager will be able to change any of the fields (excepto for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: title, description, location (in case automatic allocation has failed), category and priority. Confirmation will be needed to save changes.
+\reqin The manager will be able to change any of the fields (except for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: title, description, location (in case automatic allocation has failed), category and priority. Confirmation will be needed to save changes.
 \reqsteps The system will update in the faults database the data given/modified by the manager. All the modifications of the report will be done within a transaction, and only be applied if the manager confirms so when he/she finishes the process.
 \reqout Changes on the fault database will be committed becoming permanent (successful transaction) and the manager will be notified with a confirmation message on the screen.
 \end{requirement}
