@@ -1,20 +1,5 @@
 % -*- root: ../ProjectPlan.tex -*-
 
-\newcounter{reqs}[chapter]
-\newcommand{\header}[1]{\\ \indent \textbf{#1}\hspace{10pt}}
-
-\newcommand{\reqvertsep}{\vspace{-7pt}}
-
-\newcommand{\reqdesc}{\subparagraph{Description}}
-\newcommand{\reqin}{\reqvertsep\subparagraph{Input data}}
-\newcommand{\reqout}{\reqvertsep\subparagraph{Output data}}
-\newcommand{\reqsteps}{\reqvertsep\subparagraph{Steps}}
-
-\newenvironment{requirement}[1]{
-	\refstepcounter{reqs}
-	\subsection{Requirement \arabic{reqs} - #1}
-}{\vspace{20pt}}
-
 
 
 Before we start defining FML's requirements we need to define two things, the \textbf{roles} inside FML and the \textbf{Operating environment} in which FML will work.
