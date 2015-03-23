@@ -85,71 +85,43 @@ In a similar way, non-functional requirements are organized into categories atte
 
 \begin{requirement}{Filtering list of categories}
 \reqdesc The system must allow users to search and filter from the category list.
-\reqin Optional external input:
-\begin{itemize}
-	\item Value to be searched in the whole list.
-\end{itemize}
-\reqout \begin{itemize}
-	\item The list of categories will be shown.
-	\item External Query: the user will be able to filter the list giving values interactively.
-	\item Category object \textbf{if one of the categories} from the list \textbf{is selected}.
-\end{itemize}
+\reqin Logical combination (\textit{and, or, not}) of attribute and value pairs that constitute the filter.
+\reqsteps The system validates the filter query, then filters the list of categories according to that filter.
+\reqout List of filtered categories.
 \end{requirement}
 
 \begin{requirement}{Add new categories}
-\reqdesc  The system must allow administrators to add new categories.
-\reqin \begin{itemize}
-	\item Information needed to create category. This information is given by external inputs:
-		\subitem Title.
-		\subitem Information of department's chief. 
-\end{itemize}
-\reqsteps Assure that the category does not exist previously before creating it.
-\reqout \begin{itemize}
-	\item OK or Error message.
-	\item if OK:
-		\subitem Department chief object stored into database.
-		\subitem List of categories updated.
-\end{itemize}
+\reqdesc The system must allow administrators to add new categories.
+\reqin Information needed to create category. This information is given by external inputs: title and information of department's chief.
+\reqsteps The system ensures that the category does not exist previously before creating it, and then saves the category in the database.
+\reqout The department chief object is stored into database and the list of categories is updated.
 \end{requirement}
 
 \begin{requirement}{Delete categories}
-\reqdesc  The system must allow administrators to delete categories.
-\reqin Category object.
-\reqout \begin{itemize}
-	\item OK or Error message.
-	\item if OK:
-		\subitem List of categories updated.
-		\subitem Updating database with new information (including all task inside that category).
-		\subitem Notification to all users related to the category (maintenance personnel).
-\end{itemize}
+\reqdesc The system must allow administrators to delete categories.
+\reqin The category object to delete.
+\reqsteps The system finds the category and every task with the category being deleted. Those tasks are changed removing this category to maintain coherence of the inner system database. Finally, the category is removed from the system.
+\reqout The category disappears from the database and from every task categorized with it.
 \end{requirement}
 
 \begin{requirement}{Modifying category stored values and its priority}
 \reqdesc The system must allow administrators to modify categories attributes and its priority stored.
-\reqin 
-\begin{itemize}
-\item The attribute of the selected category to be modified.
-\item The new value to be stored.
-\end{itemize}
-\reqout \begin{itemize}
-	\item OK or Error message.
-	\item If OK:
-	\subitem New reported fault object with new information modified.
-	\subitem Updating database with new information.
-	\subitem Notification to all users related to the task (reporter and maintenance personnel assigned to it)
-\end{itemize}
-\end{requirement}
+\reqin The category to be modified and the attributes that are going to be changed.
+\reqsteps The system finds the category and changes the corresponding attributes. There's no need to update related objects as the category identification number is not modifiable, except if the priority is modified.
 
+If the priority is modified, the system will update the priority of every task that hasn't been set manually by the users.
+\reqout The database is updated with the new information for the category. If the priority for the category is modified, tasks in the system are updated accordingly and the system will notify the users related with those updated tasks.
+\end{requirement}
 
 
 \subsection{Report System}
 
-
-\begin{requirement}{Fault's location}
+\begin{requirement}{Fault location}
+\label{reqFaultLocation}
 \reqdesc Get the location of the fault, based on the location of the reporter.
 \reqin Two kind of external inputs are necessary for determine location:
 \begin{itemize}
-\item Faculty where the fault is located, given by.
+\item Facility where the fault is located, given by.
 \subitem GPS coordinates (if possible).
 \subitem Manually chose location.
 \item Manually chose floor and room inside the building where the fault is located.
@@ -160,55 +132,31 @@ In a similar way, non-functional requirements are organized into categories atte
 
 \begin{requirement}{Incidences report}
 \reqdesc The system must allow users to report incidences.
-\reqin 
-\begin{itemize}
-	\item Compulsory external inputs:
-	\subitem Title.
-	\subitem Category.
-	\item Compulsory internal inputs:
-	\subitem Location object.
-	\item Optional external inputs:
-	\subitem Description of the problem.
-	\subitem Picture from gallery or taken on the fly (Optional).
-\end{itemize}
-\reqsteps The system saves into faults database a new record with additional information is added such as \textit{priority}.
-\reqout
-\begin{itemize}
-	\item Reported fault object.
-	\item Message to the maintenance personnel.
-	\item Notification to the reporter saying the report has been processed, including a brief summary so the user knows exactly which report has been processed.
-\end{itemize}
+\reqin The user must input a title and a category for the report. The system will automatically set a location for the report (\reqref{reqFaultLocation}). Optionally, the user can add a description of the problem and a picture. The system will send also the identification of the user who's reporting the task.
+\reqsteps The system saves in the database a new record with the input data and the user who reported it. The system adds additional calculated information such as priority (decided automatically based on category).
+\reqout The reported fault object is stored into the database, and the maintenance personnel is notified of the new fault. The user receives an acknowledgment of the received report.
 \end{requirement}
-
-
 
 \subsection{Notification and Messaging System}
 
-
-\begin{requirement}{Notification user when the fault has been solved}
+\begin{requirement}{Notification when the fault has been solved}
 \reqdesc The user will receive a notification when a fault he has reported has been solved.
-\reqin
-\begin{itemize}
-	\item Compulsory internal input:
- 	\subitem Reported fault object.
- 	\subitem User object with contact information.
- \end{itemize}
-\reqout Message to the user saying the fault has been solved successfully, including a brief summary so the user knows exactly which report has been solved.
+\reqin Reported fault object and the user who will receive the notification.
+\reqsteps The system retrieves the notification preferences for the user (e.g., mail, push mobile notification), builds the notification and sends it through the corresponding external channel.
+\reqout A message saying the fault has been solved successfully with a brief summary of it is sent to the user.
 \end{requirement}
 
 \begin{requirement}{Messaging between users}
-\reqdesc The personnel in charge must be able to message the reporter of the incidence.
-\reqin The personnel in charge selects the incidence.
-\reqsteps The system connects both users.
-\reqout Both users can talk between them.
+\reqdesc The personnel in charge must be able to talk with the reporter of the incidence.
+\reqin The report to talk about and the message to send.
+\reqsteps The system retrieves the users that should receive the message. Those are the users related to that task (reporters and maintenance personnel) except the one who sent the message. The message is stored in the system and every user will see it in the chat section of the selected report.
+\reqout All users related to the task can see the new message sent regarding the corresponding report.
 \end{requirement}
-
 
 
 \subsection{User Management}
 
-
-\begin{requirement}{Select fault to check history}
+\begin{requirement}{See fault history}
 \reqdesc Registered users will be able to list the faults they had report and select one of them.
 \reqin Some optional inputs to filter the history by, such as:
 \begin{itemize}
@@ -221,7 +169,7 @@ In a similar way, non-functional requirements are organized into categories atte
 	\subitem Date.
 \end{itemize}
 \reqsteps The list will be shown and the user can give interactively values to filter the list.
-\reqout 
+\reqout
 \begin{itemize}
 	\item External Query:
 	\subitem A list of reported faults ordered by date, containing as much as the number of faults per page given by the user or using the default value.
@@ -269,7 +217,7 @@ their resolution date.
 
 \begin{requirement}{List all reports}\label{A4-ListAllReports}
 \reqdesc The system must allow listing all reported faults.
-\reqin 
+\reqin
 \begin{itemize}
  	\item Some (or none) values to filter the list by, such as:
  		\subitem Category.
