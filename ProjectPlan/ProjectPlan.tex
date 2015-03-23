@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass[11pt]{report}
 
 \usepackage{fancyhdr} % Cabeceras de página
 \usepackage{lastpage} % Módulo para añadir una referencia a la última página
@@ -30,8 +30,9 @@
 
 \fancyhf{}
 \fancypagestyle{plain}{%
-	\lhead{\small \itshape Project Plan \, -\, \thedate\, -\, SEPRO}
-	\rhead{\vspace{-20pt} \includegraphics[width =40 pt]{../Logo.jpg}}
+	\lhead{\raisebox{12pt}{\textsc{Project Plan} - \small Ref. TFC-UAM-01}}
+	\chead{\centering \vspace{-15pt} \includegraphics[width =40 pt]{../Logo.jpg}}
+	\rhead{\raisebox{12pt}{\small Ver. 1.0 - \today \vspace{2pt}}}
 	\cfoot{\thepage\ of \pageref{LastPage}}
 	\rfoot{}
 }
