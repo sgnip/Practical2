@@ -130,10 +130,17 @@ If the priority is modified, the system will update the priority of every task t
 \reqout Location object.
 \end{requirement}
 
-\begin{requirement}{Incidences report}
+\begin{requirement}{Incidences report}\label{ReportSystem_IncidencesReport}
 \reqdesc The system must allow users to report incidences.
 \reqin The user must input a title and a category for the report. The system will automatically set a location for the report (\reqref{reqFaultLocation}). Optionally, the user can add a description of the problem and a picture. The system will send also the identification of the user who's reporting the task.
-\reqsteps The system saves in the database a new record with the input data and the user who reported it. The system adds additional calculated information such as priority (decided automatically based on category).
+\reqsteps The system generates an object with all the information given by the reporter. The system adds additional calculated information such as priority (decided automatically based on category).
+\reqout The fault reported object.
+\end{requirement}
+
+\begin{requirement}{Store incidences report}
+\reqdesc Store into database the report object given by \ref{ReportSystem_IncidencesReport}
+\reqin Report object.
+\reqdesc The system saves in the database a new record with the input data and the user who reported it.
 \reqout The reported fault object is stored into the database, and the maintenance personnel is notified of the new fault. The user receives an acknowledgment of the received report.
 \end{requirement}
 
