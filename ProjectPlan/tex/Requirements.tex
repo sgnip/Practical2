@@ -11,7 +11,7 @@
 \newcommand{\reqsteps}{\reqvertsep\subparagraph{Steps}}
 
 \newenvironment{requirement}[1]{
-	\stepcounter{reqs}
+	\refstepcounter{reqs}
 	\subsection{Requirement \arabic{reqs} - #1}
 }{\vspace{20pt}}
 
