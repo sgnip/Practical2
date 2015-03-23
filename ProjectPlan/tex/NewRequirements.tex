@@ -1,0 +1,329 @@
+
+\chapter{Requirements}
+The functional and non-functional requirements of the Fault Manager Lite application are gathered in the next sections of the document.
+
+Functional requirements are organized into their corresponding subsystems. If any requirement could depend on two or more subsystems due to the function it performs, then one of those subystems (normally the most influence) will be chosen. 
+
+In a similar way, non-functional requirements are organized into categories attending to their scope.
+
+\section{Functional Requirements}
+
+
+
+\subsection{Task Management}
+
+
+\begin{requirement}{Generate repair task}
+\reqdesc When the report system receives a new fault report, it will analyze the information it contains in order to generate its corresponding repair task. This task will later be automatically assigned to a technician.
+\reqin The fault report sent by an user of the application.
+\reqsteps The system will analyze the information of this fault report and generate its corresponding repair task. That task will be classified depending on its category and priority, and saved in the fault database.
+\reqout The generated repair task, whose status will be 'Pending'.
+\end{requirement} 
+
+\begin{requirement}{Visualize new notices of incidences}
+\reqdesc Managers will be able to see new notices of incidences that have not been assigned yet, in order to revise their correctness.
+\reqin Function triggered manually by the manager by selecting its corresponding option.
+\reqsteps Depending on the department the manager is in charge of, the system will look in the fault database for new notices of incidences of that department that are still not solved nor assigned to any technician.
+\reqout The system will display a list of incidence reports. Information about each report will also be shown to see their correctness.
+\end{requirement} 
+
+\begin{requirement}{Definition of priority criteria}
+\reqdesc The system must allow to specify different criteria to assign automatically a priority to each incidence.
+\reqin The user selects parameters of the incidence object and corresponding keywords that will conform the selection criteria, and the desired priority that will be set on match.
+\reqsteps The system stores the criteria and applies it automatically on incidence creation in order to establish a priority.
+\reqout The system automatically clasifies each incidence based on user-defined criteria: if a certain parameter (e.g., location or description) contains the keywords specificied, the priority will be set to whatever the user specified in the criteria.
+\end{requirement}
+
+\begin{requirement}{Management of priorities by managers}
+\reqdesc Managers must be able to receive reports and manage the incidences based on the departments they are in charge of.
+\reqin The maintenance personnel sends messages and incidences to the system.
+\reqsteps The system saves all the information and shows them to the personnel in charge.
+\reqout Managers sees all related messags and reports.
+\end{requirement}
+
+\begin{requirement}{Changes of incidence state}
+\reqdesc Managers must be able to change the state (Pending, Assigned or Solved) of each incidence of their departments.
+\reqin THe manager introduces the new state of the incidence.
+\reqsteps The system saves the new state in the database.
+\reqout The incidence has the new state registered.
+\end{requirement}
+
+\begin{requirement}{Changes of incidence category}
+\reqdesc Managers must be able to change the category of each incidence.
+\reqin The personnel in charge inputs the new category of the incidence.
+\reqsteps The system saves the new category.
+\reqout The incidence has the new category registered.
+\end{requirement}
+
+\begin{requirement}{Reassignment of tasks}
+\reqdesc Managers must be able to change the technician assigned to a repair task.
+\reqin The manager has to select a repair task from his/her department and introduce the identifier of other member of his/her department
+\reqsteps The system will look into de staff database for the identifier of the new technician and update the corresponding field in the selected repair task.
+\reqout Changes in the detabase entry of the repair task will be saved. The new technician will receive a notification of the new task he/she is in charge of; the previous technician will also receive a task cancelling notification.
+\end{requirement}
+
+\begin{requirement}{Modify notices of incidences}
+\reqdesc Managers will be able to modify reports of incidences for their departments in order to correct any mistake or complete gaps in the forms.
+\reqin The manager will be able to change any of the fields (excepto for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: title, description, location (in case automatic allocation has failed), category and priority. Confirmation will be needed to save changes.
+\reqsteps The system will update in the faults database the data given/modified by the manager. All the modifications of the report will be done within a transaction, and only be applied if the manager confirms so when he/she finishes the process.
+\reqout Changes on the fault database will be committed becoming permanent (successful transaction) and the manager will be notified with a confirmation message on the screen.
+\end{requirement}
+
+\begin{requirement}{Manual assignment of incidences}
+\reqdesc Managers of each department will be able to assign the reparation of incidences to technical members of their department.
+\reqin The manager will have to introduce the identifier of the fault report and the name/identifier of the technician that will fix that fault.
+\reqsteps The system will look for the technician in the staff database and for the fault report in the faults database. The status of the fault will be changed from 'Pending' to 'Assigned' and the fault will now be related to its technician.
+\reqout A confirmation message will be shown to the manager and the technician will receive a notification of the new task he/she has been assigned to repair.
+\end{requirement}
+
+\begin{requirement}{Automatic assignment of incidences}
+\reqdesc The system will automatically assign repair tasks whose status is 'Pending' to the closest technician from the department of the fault (category).
+\reqin A repair task with 'Pending' status.
+\reqsteps The system will take the category and location of the reported fault and look for the closest technician that belongs to that department and assign him/her that repair task. The status of the fault will be changed from 'Pending' to 'Assigned' and the fault will now be related to its technician.
+\reqout The status of the fault in the database will be changed and the technician will receive a notification of the new task he/she has been assigned to repair.
+\end{requirement}
+
+\begin{requirement}{Filtering list of categories}
+\reqdesc The system must allow users to search and filter from the category list.
+\reqin Optional external input:
+\begin{itemize}
+	\item Value to be searched in the whole list.
+\end{itemize}
+\reqout \begin{itemize}
+	\item The list of categories will be shown.
+	\item External Query: the user will be able to filter the list giving values interactively.
+	\item Category object \textbf{if one of the categories} from the list \textbf{is selected}.
+\end{itemize}
+\end{requirement}
+
+\begin{requirement}{Add new categories}
+\reqdesc  The system must allow administrators to add new categories.
+\reqin \begin{itemize}
+	\item Information needed to create category. This information is given by external inputs:
+		\subitem Title.
+		\subitem Information of department's chief. 
+\end{itemize}
+\reqsteps Assure that the category does not exist previously before creating it.
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item if OK:
+		\subitem Department chief object stored into database.
+		\subitem List of categories updated.
+\end{itemize}
+\end{requirement}
+
+\begin{requirement}{Delete categories}
+\reqdesc  The system must allow administrators to delete categories.
+\reqin Category object.
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item if OK:
+		\subitem List of categories updated.
+		\subitem Updating database with new information (including all task inside that category).
+		\subitem Notification to all users related to the category (maintenance personnel).
+\end{itemize}
+\end{requirement}
+
+\begin{requirement}{Modifying category stored values and its priority}
+\reqdesc The system must allow administrators to modify categories attributes and its priority stored.
+\reqin 
+\begin{itemize}
+\item The attribute of the selected category to be modified.
+\item The new value to be stored.
+\end{itemize}
+\reqout \begin{itemize}
+	\item OK or Error message.
+	\item If OK:
+	\subitem New reported fault object with new information modified.
+	\subitem Updating database with new information.
+	\subitem Notification to all users related to the task (reporter and maintenance personnel assigned to it)
+\end{itemize}
+\end{requirement}
+
+
+
+\subsection{Report System}
+
+
+\begin{requirement}{Fault's location}
+\reqdesc Get the location of the fault, based on the location of the reporter.
+\reqin Two kind of external inputs are necessary for determine location:
+\begin{itemize}
+\item Faculty where the fault is located, given by.
+\subitem GPS coordinates (if possible).
+\subitem Manually chose location.
+\item Manually chose floor and room inside the building where the fault is located.
+\end{itemize}
+\reqsteps Transform input information into Location object.
+\reqout Location object.
+\end{requirement}
+
+\begin{requirement}{Incidences report}
+\reqdesc The system must allow users to report incidences.
+\reqin 
+\begin{itemize}
+	\item Compulsory external inputs:
+	\subitem Title.
+	\subitem Category.
+	\item Compulsory internal inputs:
+	\subitem Location object.
+	\item Optional external inputs:
+	\subitem Description of the problem.
+	\subitem Picture from gallery or taken on the fly (Optional).
+\end{itemize}
+\reqsteps The system saves into faults database a new record with additional information is added such as \textit{priority}.
+\reqout
+\begin{itemize}
+	\item Reported fault object.
+	\item Message to the maintenance personnel.
+	\item Notification to the reporter saying the report has been processed, including a brief summary so the user knows exactly which report has been processed.
+\end{itemize}
+\end{requirement}
+
+
+
+\subsection{Notification and Messaging System}
+
+
+\begin{requirement}{Notification user when the fault has been solved}
+\reqdesc The user will receive a notification when a fault he has reported has been solved.
+\reqin
+\begin{itemize}
+	\item Compulsory internal input:
+ 	\subitem Reported fault object.
+ 	\subitem User object with contact information.
+ \end{itemize}
+\reqout Message to the user saying the fault has been solved successfully, including a brief summary so the user knows exactly which report has been solved.
+\end{requirement}
+
+\begin{requirement}{Messaging between users}
+\reqdesc The personnel in charge must be able to message the reporter of the incidence.
+\reqin The personnel in charge selects the incidence.
+\reqsteps The system connects both users.
+\reqout Both users can talk between them.
+\end{requirement}
+
+
+
+\subsection{User Management}
+
+
+\begin{requirement}{Select fault to check history}
+\reqdesc Registered users will be able to list the faults they had report and select one of them.
+\reqin Some optional inputs to filter the history by, such as:
+\begin{itemize}
+	\item External:
+	\subitem Text to match with title.
+	\subitem Text to match with description.
+	\subitem Faults per page.
+	\item Internal:
+	\subitem Location object.
+	\subitem Date.
+\end{itemize}
+\reqsteps The list will be shown and the user can give interactively values to filter the list.
+\reqout 
+\begin{itemize}
+	\item External Query:
+	\subitem A list of reported faults ordered by date, containing as much as the number of faults per page given by the user or using the default value.
+\end{itemize}
+\end{requirement}
+
+\begin{requirement}{Show to a manager the list of members of his/her technical staff}
+\reqdesc Managers will be able to visualize an interactive list of members of the technical staff they are in charge of. The list will be interactive in the sense that the manager would be able to see more information about an specific technician (see next requirement).
+\reqin The manager has to introduce the name and/or the numeric identifier of the technician whose statistics and profile wants to see. Then, the manager will have to select one from the results of the search done.
+\reqsteps The system will use the criteria introduced by the manager to look for employees that match them. Then, it will show a list of the matchings and once the manager has chosen one of the list, the system will gather the corresponding information from the staff database (profile info) and the fault database (in order to generate statistics about the chosen technician).
+\reqout The system will show the manager the profile of the selected technician. In addition, it will also generate some statistics related to the labour performed by that technician.
+\end{requirement}
+
+\begin{requirement}{Show detailed information about a technician}
+\reqdesc Managers will have available to get more information about any of the technicians that are members of their departments.This information will be in the form of statistics and profiles of the corresponding technicians.
+\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see previous) whose statistics and profile wants to see.
+\reqsteps The system will retrieve the corresponding information about this technician from the staff database (personal and contact information) and the fault database (tasks assigned and solved tasks in order to generate statistics about his/her performance). The statistics generated will include information about (at least) his/her average working time, effectiveness and most common tasks solved.
+\reqout The system will show the manager the profile of the selected technician. In addition, it will also generate some statistics related to the labour performed by that technician. This information will be given to the manager in the form of a report.
+\end{requirement}
+
+
+
+\subsection{Fault History and Statistics}
+
+
+\begin{requirement}{Check history of reported fault}
+\reqdesc Registered users will be able to check details of a reported fault.
+\reqin Fault reported object with all information attached.
+\reqout Report showing all the information attached to the object.
+\end{requirement}
+\begin{requirement}{Tracking incidence impact}
+\reqdesc The system must allow internal users with a maintenance personnel profile to check the impact of the incidences.
+\reqin Incidence object associated to the user logged in.
+\reqsteps The system retrieves the incidence from the database, specifically the impact saved.
+\reqout Numeric value showing the impact of the incidence.
+\end{requirement}
+
+\begin{requirement}{Get report of incidences}
+\reqdesc Managers will have access to a report on incidences. On one hand this report will show the incidences that are not solved or those that are being solved in order of priority. On the other hand, the incidences report will show in a similar way the last incidences that have been solved, sorted by
+their resolution date.
+\reqin The manager will trigger this action by selecting its corresponding option.
+\reqsteps The system will look into the faults database for fault reports that are not solved or they are being solved at the moment, and will order the results by priority. Then, in the same database, the system will filter by reports already solved and order them by resolution date. With these two sets of results, an interactive report will be produced.
+\reqout The system will show the manager the report produced by his/her request. This report is interactive in the sense that the manager can select one of the faults to see its characteristics.
+\end{requirement}
+
+\begin{requirement}{List all reports}\label{A4-ListAllReports}
+\reqdesc The system must allow listing all reported faults.
+\reqin 
+\begin{itemize}
+ 	\item Some (or none) values to filter the list by, such as:
+ 		\subitem Category.
+ 		\subitem Priority.
+ 		\subitem Location.
+ \end{itemize}
+\reqsteps The system will search into the database all reports matching the given values. If a value is changed, the list must be filtered again with the new given values.
+\reqout External \textbf{query}: List of the reports matching with given values, ordered mainly by category and secondly by date. This list can be updated interactively by the user modifying filter values.
+\end{requirement}
+
+\begin{requirement}{Consult single report}
+\reqdesc Users will be able to check details of a reported fault from the full list of reports (given by \ref{A4-ListAllReports}).
+\reqin Fault reported object with all information attached.
+\reqout Report showing all the information attached to the object.
+\end{requirement}
+
+
+\begin{requirement}{Visualize history of tasks}
+\reqdesc Managers will be able to visualize the complete
+history of tasks in a table where each row represents an incidence.
+\reqin The manager will trigger this function by selecting its corresponding option.
+\reqsteps The system will access the incidences database in order to retrieve information about all the faults reported and show it to the manager. By default, the tasks will be ordered by date.
+\reqout The system will display in the screen a table containing all the incidences reported until that moment.
+\end{requirement}
+
+\begin{requirement}{Sort history of tasks}
+\reqdesc Managers will be able to sort the history of tasks depending of different criteria chosen by the manager. This sorting criteria includes at least: priority, category, date, state.
+\reqin The complete history of tasks has been previously retrieved. The manager will have to choose a criteria among the list given above.
+\reqsteps The system will take the results of the history of tasks it has previously retrieved and order them by the chosen criteria.
+\reqout The system will display in the screen a table containing all the incidences sorted in the requested order.
+\end{requirement}
+
+\begin{requirement}{Consult extended information about an incidence on the report}
+\reqdesc Managers will be able to consult extended information on each of the incidences that appear in the report of incidences.
+\reqin Report of incidences produced by the system. The manager will have to select one of the incidences of the report to see detailed information about it.
+\reqsteps The system will look into the faults database for the selected fault, gather all the information related to it and show it to the manager.
+\reqout The system will show the manager a new screen with detailed information about the incidence he/she has selected in the report.
+\end{requirement}
+
+\begin{requirement}{Generate statistics about incidences}
+\reqdesc Managers will be able to get statistics related to the tasks and to their related areas will be available in order to
+detect problematic areas or departments.
+\reqin The manager will trigger this function by selecting its corresponding option.
+\reqsteps The system will take all the information about incidences stored in the incidences database in order to analyze it and generate some statistics about them. Relevant information for the statistics will be the category, priority and location of tasks. Statistics will also take into account the costs of the repairs and the time elapsed from the detection of a fault until it has been solved (statistics about effectiveness and efficiency of fault troubleshooting).
+\reqout A report containing the statistics generated will be shown to the manager.
+\end{requirement}
+
+\begin{requirement}{Print reports/screens}
+\reqdesc All the reports generated by the application will be printable. This also applies to new screens that the application opens in order to show any requested information.
+\reqin Report or screen that the system has generated or opened by the request of an user.
+\reqsteps The system will convert the report or the screen to a PDF document and send it to the printer.
+\reqout The printed document.
+\end{requirement}
+
+
+\section{Non-Functional Requirements}
+
