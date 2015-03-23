@@ -48,7 +48,7 @@
 
 \newenvironment{requirement}[1]{
 	\refstepcounter{reqs}
-	\subsection{Requirement \arabic{reqs} - #1}
+	\subsubsection{\textsc{Requirement \arabic{reqs}} - #1}
 }{\vspace{20pt}}
 
 
@@ -59,7 +59,7 @@
 \pagestyle{plain}
 
 \chapter{Requirements and subsystems}
-\input{tex/Requirements.tex}
+\input{tex/NewRequirements.tex}
 \input{tex/Subsystems.tex}
 
 \chapter{System size estimation}
