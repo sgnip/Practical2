@@ -153,15 +153,56 @@ If the priority is modified, the system will update the priority of every task t
 \reqout A message saying the fault has been solved successfully with a brief summary of it is sent to the user.
 \end{requirement}
 
-\begin{requirement}{Messaging between users}
-\reqdesc The personnel in charge must be able to talk with the reporter of the incidence.
-\reqin The report to talk about and the message to send.
-\reqsteps The system retrieves the users that should receive the message. Those are the users related to that task (reporters and maintenance personnel) except the one who sent the message. The message is stored in the system and every user will see it in the chat section of the selected report.
-\reqout All users related to the task can see the new message sent regarding the corresponding report.
+\begin{requirement}{Receive general notifications}\label{ReqRcvNotif}
+\reqdesc Users of the application will receive notifications of general purpose that have been sent by administrators. Among these notifications we can find for example: new version of the app, fire or blackout in a building, special events in the campus, etc.
+\reqin A new notification has been send by a manager.
+\reqsteps The system will look for the new notification in the database and show it to the user.
+\reqout The notification will be displayed to the user.
 \end{requirement}
 
+\begin{requirement}{Send general notifications}
+\reqdesc Manager will be able to write notifications of general purpose and send them to the users of the application. Among these notifications we can find for example: new version of the app, fire or blackout in a building, special events in the campus, etc.
+\reqin The manager has to write a notification message.
+\reqsteps The system will get that message and store it in the database. Then, it will alert the client applications of the existence of a new notification.
+\reqout The message has been stored in the database so all the users will be able to receive it later (see \ref{ReqRcvNotif}).
+\end{requirement}
+
+\begin{requirement}{Send messages to users}
+\reqdesc Users will be able to send messages to other users following the some limitations: managers and technicians can send messages to each other and/or to the reporter of an incidence; the reporter of an incidence can only send messages to the technician assigned to that fault, only if the technician has contacted him/her before (the technician has started the conversation with the reporter).
+\reqin The fault report to talk about and the message to send.
+\reqsteps The system retrieves the users that should receive the message. Those are the users related to that task (reporters and maintenance personnel) apart from the one who is going to send the message. The message is stored in the system and every user related to that fault report will be able to see it in the chat section of the selected report.
+\reqout The message is stored in the system so that all users related to the task can see the new message sent regarding the corresponding report.
+\end{requirement}
+
+\begin{requirement}{Read messages of a selected report}
+\reqdesc Users will be able to read messages of fault reports they are related to (they are the reporters, assigned technicians or managers of the department the report belongs to).
+\reqin The fault report that may contain some messages.
+\reqsteps The system will retrieve the messages related to that fault report and show them to the interested user in the chat section of the selected report.
+\reqout The messages found in the system (if any) that are related to that fault report.
+\end{requirement}
 
 \subsection{User Management}
+
+\begin{requirement}{Login into the system}
+\reqdesc Every user can login in the application introducing their credentials for the UAM's identification server, confirming they are recognised members of the university.
+\reqin The user's credential for the UAM identification server.
+\reqsteps The system will take the credentials given by the user and resend them to the UAM identification server, which will validate or not that credentials. 
+\reqout Depending on the answer of that server, the user will access or not into his account in the application.
+\end{requirement}
+
+\begin{requirement}{Report a misbehaving user}
+\reqdesc When technicians encounter a fake fault report, they can report the user who sent that report as an alert of misbehaviour.
+\reqin The identifier of the user to report, that is present in the repair task given to the technician.
+\reqsteps The system will look for the user's identifier in the database and send a notification containing that identifier and the fake fault report to the administrator, who will decide if the user must be baned or not. 
+\reqout Report notification sent to the administrator.
+\end{requirement}
+
+\begin{requirement}{Ban an user from the system}
+\reqdesc Administrator are able to ban any user from the application in order to prevent more misbehaving from those users.
+\reqin The report notification, sent by a technician. The administrator will decide to ban that user or not for an specific period of time: no ban, one week ban, one month ban, indefinitely ban.
+\reqsteps The system will show the report notification sent by a technician and wait for the selection of a ban period of time. 
+\reqout The user might be unable to login into the system during the period of time specified by the administrator.
+\end{requirement}
 
 \begin{requirement}{See fault history}
 \reqdesc Registered users will be able to list the faults they have reported and select one of them.
@@ -170,7 +211,7 @@ If the priority is modified, the system will update the priority of every task t
 \reqout A list of the reports sent by the given user and ordered by date.
 \end{requirement}
 
-\begin{requirement}{Show to a manager the list of members of his/her technical staff}
+\begin{requirement}{Show to a manager the list of members of his/her technical staff}\label{ReqShowTechnicians}
 \reqdesc Managers will be able to visualize an interactive list of members of the technical staff they are in charge of. The list will be interactive in the sense that the manager would be able to see more information about an specific technician (see next requirement).
 \reqin The manager has to introduce the name and/or the numeric identifier of the technician whose statistics and profile wants to see. Then, the manager will have to select one from the results of the search done.
 \reqsteps The system will use the criteria introduced by the manager to look for employees that match them. Then, it will show a list of the matchings and once the manager has chosen one of the list, the system will gather the corresponding information from the staff database (profile info) and the fault database (in order to generate statistics about the chosen technician).
@@ -179,7 +220,7 @@ If the priority is modified, the system will update the priority of every task t
 
 \begin{requirement}{Show detailed information about a technician}
 \reqdesc Managers will have available to get more information about any of the technicians that are members of their departments.This information will be in the form of statistics and profiles of the corresponding technicians.
-\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see previous) whose statistics and profile wants to see.
+\reqin The manager has to choose one of the technicians from the complete list of members of his/her technical staff (see \ref{ReqShowTechnicians}) whose statistics and profile wants to see.
 \reqsteps The system will retrieve the corresponding information about this technician from the staff database (personal and contact information) and the fault database (tasks assigned and solved tasks in order to generate statistics about his/her performance). The statistics generated will include information about (at least) his/her average working time, effectiveness and most common tasks solved.
 \reqout The system will show the manager the profile of the selected technician. In addition, it will also generate some statistics related to the work performed by that technician. This information will be given to the manager in the form of a report.
 \end{requirement}
