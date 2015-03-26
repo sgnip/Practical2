@@ -146,12 +146,15 @@ If the priority is modified, the system will update the priority of every task t
 
 \subsection{Notification and Messaging System}
 
-\begin{requirement}{Notification when the fault has been solved}
-\reqdesc The user will receive a notification when a fault he has reported has been solved.
-\reqin Reported fault object and the user who will receive the notification.
-\reqsteps The system retrieves the notification preferences for the user (e.g., mail, push mobile notification), builds the notification and sends it through the corresponding external channel.
-\reqout A message saying the fault has been solved successfully with a brief summary of it is sent to the user.
+
+\begin{requirement}{Send general notifications}
+\reqdesc Manager will be able to write notifications of general purpose and send them to the users of the application. Among these notifications we can find for example: new version of the app, fire or blackout in a building, special events in the campus, etc.
+\reqin The manager has to write a notification message.
+\reqsteps The system will get that message and store it in the database. Then, it will alert the client applications of the existence of a new notification.
+\reqout The message has been stored in the database so all the users will be able to receive it later (see \ref{ReqRcvNotif}).
 \end{requirement}
+
+
 
 \begin{requirement}{Receive general notifications}\label{ReqRcvNotif}
 \reqdesc Users of the application will receive notifications of general purpose that have been sent by administrators. Among these notifications we can find for example: new version of the app, fire or blackout in a building, special events in the campus, etc.
@@ -160,12 +163,14 @@ If the priority is modified, the system will update the priority of every task t
 \reqout The notification will be displayed to the user.
 \end{requirement}
 
-\begin{requirement}{Send general notifications}
-\reqdesc Manager will be able to write notifications of general purpose and send them to the users of the application. Among these notifications we can find for example: new version of the app, fire or blackout in a building, special events in the campus, etc.
-\reqin The manager has to write a notification message.
-\reqsteps The system will get that message and store it in the database. Then, it will alert the client applications of the existence of a new notification.
-\reqout The message has been stored in the database so all the users will be able to receive it later (see \ref{ReqRcvNotif}).
+\begin{requirement}{Notification when the fault has been solved}
+\reqdesc The user will receive a notification when a fault he has reported has been solved.
+\reqin Reported fault object and the user who will receive the notification.
+\reqsteps The system retrieves the notification preferences for the user (e.g., mail, push mobile notification), builds the notification and sends it through the corresponding external channel.
+\reqout A message saying the fault has been solved successfully with a brief summary of it is sent to the user.
 \end{requirement}
+
+
 
 \begin{requirement}{Send messages to users}
 \reqdesc Users will be able to send messages to other users following the some limitations: managers and technicians can send messages to each other and/or to the reporter of an incidence; the reporter of an incidence can only send messages to the technician assigned to that fault, only if the technician has contacted him/her before (the technician has started the conversation with the reporter).
@@ -184,14 +189,14 @@ If the priority is modified, the system will update the priority of every task t
 \subsection{User Management}
 
 \begin{requirement}{Login into the system}
-\reqdesc Every user can login in the application introducing their credentials for the UAM's identification server, confirming they are recognised members of the university.
+\reqdesc Every user can login in the application introducing their credentials for the UAM's identification server, confirming they are recognized members of the university.
 \reqin The user's credential for the UAM identification server.
 \reqsteps The system will take the credentials given by the user and resend them to the UAM identification server, which will validate or not that credentials. 
 \reqout Depending on the answer of that server, the user will access or not into his account in the application.
 \end{requirement}
 
 \begin{requirement}{Report a misbehaving user}
-\reqdesc When technicians encounter a fake fault report, they can report the user who sent that report as an alert of misbehaviour.
+\reqdesc When technicians encounter a fake fault report, they can report the user who sent that report as an alert of misbehavior.
 \reqin The identifier of the user to report, that is present in the repair task given to the technician.
 \reqsteps The system will look for the user's identifier in the database and send a notification containing that identifier and the fake fault report to the administrator, who will decide if the user must be baned or not. 
 \reqout Report notification sent to the administrator.
