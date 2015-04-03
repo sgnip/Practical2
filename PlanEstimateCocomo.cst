@@ -1,9 +1,9 @@
 998 "ASCII Costar estimate."
-0   Written:        04/04/15 00:43:47
+0   Written:        04/04/15 01:12:10
 900 File Version:   7.00
 901 Costar Version: Demo
 902 Build:          7.0.2.619
-904 Sequence Number:00247049363125881322190221344
+904 Sequence Number:00210049363125881422190220246
 905 Version:        Costar 7.0 Demo
 906 Serial Number:  70 - 01126                              
 estcreate "SeproEstimate"
@@ -17,7 +17,7 @@ pmat 4
 wsname *
 amcf *
 wsstartpoint 2
-rename "Component1"
+rename "FaultReport"
 ACAP     high
 CPLX      low
 PCAP     high
@@ -45,11 +45,11 @@ wsfp  4  2     0
 increment 1
 set auto on
 910 Lines:                       52
-911 Characters:                 823
-912 File Size:                 1137
-913 Checksum 1:                  54
-914 Checksum 2:                 186
-915 Checksum 3: 04622935672 2627609
+911 Characters:                 824
+912 File Size:                 1138
+913 Checksum 1:                  44
+914 Checksum 2:                  56
+915 Checksum 3: 04622935672 4330394
 1000 "SeproEstimate"
 1001 "    "
 1002 152
