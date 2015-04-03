@@ -1,1 +1,43 @@
 % -*- root: ../ProjectPlan.tex -*-
+\section{Estimation using function points}
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the function points for the system}
+\label{tblFunctionPoints}
+\end{table}
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{l|c}
+\textbf{Summary} & \textbf{Value} \\ \hline
+Raw function points (FP) & 183 \\
+Complexity factor (CF) & 45 \\
+Adjustment factor & 1.10 \\
+Adjusted function points & 201.3 \\
+Person/day per function points & 1.615 \\ \hline
+\textit{Estimated person-days} & \textit{325.1}
+\end{tabular}
+\caption{Estimation of the project size based on the function points detailed in table \ref{tblFunctionPoints}.}
+\label{tblFPEstimate}
+\end{table}
+
+Tables \ref{tblFunctionPoints} and \ref{tblFPEstimate} detail the estimation of the project size and time required for its completion based on the method of function points. Based on these calculations, the project would consist of approximately 201 adjusted function points. That would translate to 325.1 person-days of development time.
+
+\section{Estimation using CoCoMo II method}
+
+I don't know how to use Cocomo to estimate size.
+
