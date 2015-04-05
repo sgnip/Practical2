@@ -41,11 +41,11 @@ In a similar way, non-functional requirements are organized into categories atte
 \reqout Managers sees all related messages and reports.
 \end{requirement}
 
-\begin{requirement}{Changes of incidence state}
-\reqdesc Managers must be able to change the state (Pending, Assigned or Solved) of each incidence of their departments.
-\reqin The manager introduces the new state of the incidence.
-\reqsteps The system saves the new state in the database.
-\reqout The incidence has the new state registered.
+\begin{requirement}{Changes of incidence status}
+\reqdesc Managers must be able to change the status (Pending, Assigned or Solved) of each incidence of their departments.
+\reqin The manager introduces the new status of the incidence.
+\reqsteps The system saves the new status in the database.
+\reqout The incidence has the new status registered.
 \end{requirement}
 
 \begin{requirement}{Changes of incidence category}
@@ -64,7 +64,7 @@ In a similar way, non-functional requirements are organized into categories atte
 
 \begin{requirement}{Modify notices of incidences}
 \reqdesc Managers will be able to modify reports of incidences for their departments in order to correct any mistake or complete gaps in the forms.
-\reqin The manager will be able to change any of the fields (except for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: title, description, location (in case automatic allocation has failed), category and priority. Confirmation will be needed to save changes.
+\reqin The manager will be able to change any of the fields (except for the identifier) of a fault report by introducing new information or modifying the existing one. Among the modifiable fields of the report, there will be: subject, description, location (in case automatic allocation has failed), category and priority. Confirmation will be needed to save changes.
 \reqsteps The system will update in the faults database the data given/modified by the manager. All the modifications of the report will be done within a transaction, and only be applied if the manager confirms so when he/she finishes the process.
 \reqout Changes on the fault database will be committed becoming permanent (successful transaction) and the manager will be notified with a confirmation message on the screen.
 \end{requirement}
@@ -279,7 +279,7 @@ history of tasks in a table where each row represents an incidence.
 \end{requirement}
 
 \begin{requirement}{Sort history of tasks}
-\reqdesc Managers will be able to sort the history of tasks depending of different criteria chosen by the manager. This sorting criteria includes at least: priority, category, date, state.
+\reqdesc Managers will be able to sort the history of tasks depending of different criteria chosen by the manager. This sorting criteria includes at least: priority, category, date, status.
 \reqin The complete history of tasks has been previously retrieved. The manager will have to choose a criteria among the list given above.
 \reqsteps The system will take the results of the history of tasks it has previously retrieved and order them by the chosen criteria.
 \reqout The system will display in the screen a table containing all the incidences sorted in the requested order.
@@ -311,67 +311,67 @@ detect problematic areas or departments.
 \section{Non-Functional Requirements}
 
 \subsection{Documentation}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The application will provide access to an user guide, which will be organised as a Wiki system. 
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The user guide will contain key points, basic manuals and FAQs related to the application.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The application and its documentation will be available in the following languages: Spanish, English, French, Italian, German, Portuguese and Chinese.
 \end{NFrequirement}
 
 \subsection{Security}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 Login in the system will be based in the UAM's authentication system, so connections between this server and ours must be secure for the users in order to protect their credentials.
 \end{NFrequirement}
 
 \subsection{Privacy}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 Within the application context, all the user will have a numeric ID of 7 numbers, that will be unique for each user and will warrantee their privacy (i.e. when a reporter is communicating with a technician using the messaging system).
 \end{NFrequirement}
 
 \subsection{Performance (Availability, Resilience, Reliability)}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The system will be available 97\% of the time during the university course.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The response time of the system will be less than 5 seconds at least 95\% of the times an action has been requested.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The system will recover from a crash in less than 30 seconds.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 Events, errors and crashes of the system must be written down in logs in order to do some analysis of them if needed.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The application must stand connections from 1000 users at the same time.
 \end{NFrequirement}
-\begin{NFrequirement}
-The system will have a mirror database in case it is needed to recover to a previous state.
+\begin{NFrequirement}{}
+The system will have a mirror database in case it is needed to recover to a previous status.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The mirror database will be updated every Saturday, between 2:00 am and 7:00 am.
 \end{NFrequirement}
 
 \subsection{Usability}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 Every screen will have buttons or any other resources to go back to the previous screen the user was at.
 \end{NFrequirement}
 
 \subsection{Interface}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 Apart from the application main screen, only one more additional screen can be opened in order to show detailed information the user has explicitely requested.
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The manual location of the incident will be specified using a series of dropdown lists, organized as a tree in order of significance (i.e. building, floor, class).
 \end{NFrequirement}
 
 \subsection{Portability}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The application will be accesible as a web page from these web browsers: Internet Explorer 7 or later, Firefox 15 or later, Google Chrome 19 or later. 
 \end{NFrequirement}
-\begin{NFrequirement}
+\begin{NFrequirement}{}
 The application will be accesible from its mobile app. Its app can be installed in smartphones/tablets with these Operating Systems: Android v2.3 or later, iOS 4 or later, Windows Phone 7.5 or later.
 \end{NFrequirement}
 

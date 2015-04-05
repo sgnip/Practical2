@@ -1,0 +1,623 @@
+% -*- root: ../ProjectPlan.tex -*-
+
+In this section we give more detailed information about the elements that have been taken into account in order to determine the function points of each of the subsystems that form the Fault Manager Lite software system. To do it, we will make an exhaustive analysis of the requirements specified in Section \ref{chapRequirements}, indicating for each one, the elements considered for the final calculation.External Query (EQ) 
+
+
+\section{Task Management}
+
+\subsection{Generate repair task}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Fault report in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\item ID of the assigned technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
+
+\subsection{Visualize new notices of incidences}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item List of unassigned reports of incidences.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each fault.
+\item Location of each fault.
+\item Category of each fault.
+\item Subject of each fault.
+\item Description of each fault.
+\item Status of each fault.
+\item Priority of each fault.
+\item Timestamp of each fault report.
+\item Photography of each fault.
+\item ID of each fault's reporter.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+
+\subsection{Definition of priority criteria}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Up to 15 keywords and parameters that will conform the new priority criteria, specified by the manager.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 15 DET.
+
+\subsection{Management of priorities by managers}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item List of faults in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each fault.
+\item Location of each fault.
+\item Category of each fault.
+\item Subject of each fault.
+\item Description of each fault.
+\item Status of each fault.
+\item Priority of each fault.
+\item Timestamp of each fault report.
+\item Photography of each fault.
+\item ID of each fault's reporter.
+\item ID of each fault's assigned technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+
+\subsection{Changes of incidence status}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Incidence in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item New status of the incidence.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+
+\subsection{Changes of incidence category}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Incidence in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item New category of the incidence.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+
+\subsection{Reassignment of tasks (Updating)}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Incidence in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the new technician assigned to this task.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+
+\subsection{Reassignment of tasks (Notifying)}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ?????????????????
+\item ?????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ???????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 6 DET.
+
+\subsection{Modify notices of incidences}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Incidence in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
+
+\subsection{Assignment of incidences (Automatic or manual)}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ??????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 3 DET.
+
+\subsection{Filtering list of categories}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item None.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Heating.
+\item Plumbing.
+\item Air conditioning.
+\item Cleaning (x6 buildings).
+\item Information Technologies.
+\item Elevators.
+\item Electricity.
+\item Trash Collection.
+\item Gardeners.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 0 RET/FTR and 14 DET.
+
+\subsection{Add new categories}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Name of the new category.
+\item ID of the new category.
+\item ID of the person in charge of the new department.
+\item Description of the new category.
+\item Priority level of the new category.
+\item ???????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 8 DET.
+
+\subsection{Delete categories}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item None.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Category to delete.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 0 RET/FTR and 1 DET.
+
+\subsection{Modifying category stored values and its priority}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Category to modify.
+\item New priority of the category to modify.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 2 DET.	
+
+
+
+\section{Report System}
+
+
+
+\subsection{Fault location	EI	0	1}
+\textbf{External Input (EI)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item None.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Location of the fault (automatically or manually chosen).
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 0 RET/FTR and 1 DET.
+
+\subsection{Incidences report	EI	1	9}
+\textbf{External Input (EI)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 9 DET.
+
+\subsection{Store report	ILF	1	9}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 7 DET.
+
+
+\section{Notification and Messaging System}
+
+\subsection{Send general notification}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+
+
+\subsection{Receive general notification}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+
+\subsection{Send messages to users}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 14 DET.
+
+\subsection{Read messages}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 14 DET.
+
+
+
+\section{User Management}
+
+\subsection{Login into the system}
+\textbf{External Interface Files (EIF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item None.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item UAM's credential: email.
+\item UAM's credential: password.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 0 RET/FTR and 2 DET.
+
+\subsection{Report a misbehaving user}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 11 DET.
+
+\subsection{Ban an user from the system}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ????????????????
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 11 DET.
+
+\subsection{See fault history}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+
+\subsection{Show the list of members of technical staff}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item List of technicians stored in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each technician.
+\item Name and surname of each technician.
+\item Telephone number of each technician.
+\item Position/Rank (inside the department) of each technician.
+\item Number of repair tasks solved by each technician.
+\item Career of each technician (years). 
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
+
+\subsection{Show detailed information about technician}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Technician information from the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the technician.
+\item Name and surname of the technician.
+\item Department and position/rank inside that department.
+\item List of repair tasks solved by the technician.
+\item List of repair tasks currently assigned to the technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 5 DET.
+
+
+
+\section{Fault History and Statistics}
+
+\subsection{Check history of reported fault}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Report fault from the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\item ID of the assigned technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
+
+\subsection{Tracking incidence impact}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Report fault from the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\item ID of the assigned technician.
+\item Numeric value of its impact (importance).
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 12 DET.
+
+\subsection{Get report of incidences}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Report of incidences from the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each fault.
+\item Location of each fault.
+\item Category of each fault.
+\item Subject of each fault.
+\item Description of each fault.
+\item Status of each fault.
+\item Priority of each fault.
+\item Timestamp of each fault report.
+\item Photography of each fault.
+\item ID of each fault's reporter.
+\item ID of each fault's technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
+
+\subsection{List all reports}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item List of all fault reports in the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each fault.
+\item Location of each fault.
+\item Category of each fault.
+\item Status of each fault.
+\item Priority of each fault.
+\item Timestamp of each fault report.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
+
+\subsection{Review single report}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Detailed information about an specific indicence from the report.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\item ID of the assigned technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
+
+\subsection{Visualize history of tasks}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item List of all repair tasks from the database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each task.
+\item Location of each task.
+\item Category of each task.
+\item Status of each task.
+\item Priority of each task.
+\item Timestamp of each task.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
+
+\subsection{Sort history of tasks}
+\textbf{External Output (EO)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item ??????????
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of each fault.
+\item Location of each fault.
+\item Category of each fault.
+\item Subject of each fault.
+\item Description of each fault.
+\item Status of each fault.
+\item Priority of each fault.
+\item Timestamp of each fault report.
+\item Photography of each fault.
+\item ID of each fault's reporter.
+\item ID of each fault's technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{MEDIUM} complexity with 2 RET/FTR and 11 DET.
+
+\subsection{Consult extend information about an incidence on the report}
+\textbf{External Query (EQ)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Detailed information about an specific indicence from the report.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
+\item ID of the assigned technician.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
+
+\subsection{Generate statistics about incidences}
+\textbf{External Output (EO)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Technicians ranking, ordered by department and number of solved tasks.
+\item Department ranking, ordered by total number of incidences.
+\item UAM buildings ranking, ordered by total number of incidences happened in them.
+\item User reporting ranking, ordered by total number of incidences reported.
+\item Line/Bar graphs showing number of incidences, organized by departments and months. There are two graphs for each of the 8 departments: one showing the last 12 months and the other is global (since the system was implanted). (2 x 8 = 16 graphs)
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{MEDIUM} complexity with 1 RET/FTR and 20 DET.
+
+\subsection{Generate PDF file from a report}
+\textbf{External Output (EO)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Report generated using information from the application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Technicians ranking, ordered by department and number of solved tasks.
+\item Department ranking, ordered by total number of incidences.
+\item UAM buildings ranking, ordered by total number of incidences happened in them.
+\item User reporting ranking, ordered by total number of incidences reported.
+\item Line/Bar graphs showing number of incidences, organized by departments and months. There are two graphs for each of the 8 departments: one showing the last 12 months and the other is global (since the system was implanted). (2 x 8 = 16 graphs)
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{MEDIUM} complexity with 1 RET/FTR and 20 DET.
