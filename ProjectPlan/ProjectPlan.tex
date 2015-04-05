@@ -39,6 +39,7 @@
 }
 
 \newcounter{reqs}[chapter]
+\newcounter{NFreqs}[chapter]
 \newcommand{\header}[1]{\\ \indent \textbf{#1}\hspace{10pt}}
 
 \newcommand{\reqvertsep}{\vspace{-7pt}}
@@ -49,8 +50,13 @@
 \newcommand{\reqsteps}{\reqvertsep\subparagraph{Steps}}
 
 \newenvironment{requirement}[1]{
-	\subsubsection{\textsc{Requirement \arabic{reqs}} - #1}
+	\subsubsection{\textsc{Functional Requirement \arabic{reqs}} - #1}
 	\refstepcounter{reqs}
+}{\vspace{20pt}}
+
+\newenvironment{NFrequirement}[1]{
+	\subsubsection{\textsc{Non-Functional Requirement \arabic{NFreqs}}}
+	\refstepcounter{NFreqs}
 }{\vspace{20pt}}
 
 \newcommand{\reqref}[1]{Req. \ref{#1}}
