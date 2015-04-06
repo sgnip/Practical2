@@ -1,0 +1,138 @@
+\documentclass[10pt, compress,usetitleprogressbar,aspectratio=1610]{beamer}
+
+\usetheme{m}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usemintedstyle{trac}
+
+% Presentation theme: https://github.com/matze/mtheme
+% Requirements:
+% - Xelatex
+% - Fira fonts (http://www.carrois.com/fira-4-0/#download, install Sans and Mono)
+% - Pygments (sudo pip install pygments, if pip is not installed do sudo apt-get install python-pip)
+% - The Makefile takes care of the compilation options. Make continuous adds the -pvc option for continuous preview
+
+\hypersetup{
+  hyperindex,
+    colorlinks,
+    allcolors=blue!60!black
+}
+
+\title{Fault Manager Lite}
+\subtitle{Project plan - Goals, estimations and planning}
+\date{\today}
+\author{Iván Márquez Pardo \and Víctor de Juan Sanz \and Guillermo Julián Moreno}
+\institute{Triforce}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}[fragile]
+\frametitle{Project definition}
+
+Fault Manager Lite is the future system that will fulfill the necessities of the UAM regarding notification and management of faults that arise on campus.
+
+FML unifies a fault report system with a task manager with the aim of speeding up fault troubleshooting. Users will be able to report faults in \emph{less than two minutes}. Technicians will automatically be assigned on them based on their location and department.
+\end{frame}
+
+\section{Project definition}
+
+\begin{frame}
+\frametitle{Goals}
+
+\begin{itemize}
+\item \textbf{Reduce fault detection time} in order to facilitate a quick troubleshooting.
+\item \textbf{Efficient allocation of resources} relying on automatic systems and crowdsourced reports instead of manual management.
+\item \textbf{Coordination} of all the maintenance staff.
+\item \textbf{Facilitate reports} in a way that users can communicate what's wrong without spending too much time.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subsystems \hfill \emph{II}}
+\begin{itemize}
+\item \alert{Task management} Responsible for receiving and analyzing reports. Aspects like task assignments, priority categorization and repair status will be managed by this subsystem.
+\item \alert{Reporting} Will allow users to send reports about discovered faults. It will also detect duplicates before sending them to the task manager.
+\item \alert{Notification \& messaging} Responsible for notifying technicians and users about emergencies, changes and updates in reports. It will also allow private communication channels between reporters and technicians.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subsystems \hfill \emph{II}}
+\begin{itemize}
+\item \alert{User management} Communicates with the UAM login server in order to authenticate users. Keeps a profile on each user who registered within the system, their role and their fault report history.
+\item \alert{Fault history \& stats} Tracks changes in the fault reports and generates statistics based on them, either for the whole system, for each department or even for a specific user of the system. It will also allow visualization of all the reported faults in a campus map.
+\end{itemize}
+\end{frame}
+
+\section{Project estimation}
+
+\subsection{Size estimation}
+\begin{frame}
+\frametitle{Size estimation \hfill \emph{Function points - Whole system}}
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/FunctionPointsSize.tex}
+\caption{Detailed breakdown of the estimation of the project size in terms of function points.}
+\label{tblFunctionPointsSize}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Size estimation \hfill \emph{Function points - Subsystem breakdown}}
+\end{frame}
+
+\subsection{Cost estimation}
+\begin{frame}
+\frametitle{Cost estimation \hfill \emph{Development time}}
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/FunctionPointsTimeEstimate.tex}
+\caption{Time estimation based on function points for the system (see table \ref{tblFunctionPointsSize}).}
+\label{tblFunctionPointsTime}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cost estimation \hfill \emph{COCOMO II for the Fault Report subsystem}}
+A sample of the cost estimation, based on the most critical subsystem, the fault reporter. Necessary for a MVP.
+
+\begin{table}[hbtp]
+\input{../CommonTex/CocomoCostFaultReport.tex}
+\caption{Cocomo cost estimation for the fault report subsystem.}
+\label{tblFaultReportCost}
+\end{table}
+\end{frame}
+
+\section{Project planning}
+
+\section{Project control \& tracking procedure}
+
+\section{Conclusions}
+
+\begin{frame}
+\frametitle{Conclusions}
+
+\begin{itemize}
+\item Fault Manager Lite will be able to fulfill the \textbf{required goals}: improve the fault reporting system and facilitate efficient allocation of resources in order to reduce fault detection and repair time.
+\item A testable prototype can be delivered in \textbf{X days}. A final version of the system can be finished in \textbf{Y days}.
+\item Estimated cost for the whole project is \textbf{Z million dollars}.
+\item Project progress will be tracked based on \textbf{things}.
+\end{itemize}
+
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
