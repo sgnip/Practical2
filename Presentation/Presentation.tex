@@ -30,8 +30,46 @@
 
 \maketitle
 
+\tableofcontents
+
+\section{Introduction}
 \begin{frame}[fragile]
-\frametitle{Test}
+\frametitle{Project definition}
+
+Fault Manager Lite is the future system that will fulfill the necessities of the UAM regarding notification and management of faults that arise on campus.
+
+FML unifies a fault report system with a task manager with the aim of speeding up fault troubleshooting. Users will be able to report faults in \emph{less than two minutes}. Technicians will automatically be assigned on them based on their location and department.
 \end{frame}
+
+\section{Project definition}
+
+\begin{frame}
+\frametitle{Goals}
+
+\begin{itemize}
+\item \textbf{Reduce fault detection time} in order to facilitate a quick troubleshooting.
+\item \textbf{Efficient allocation of resources} relying on automatic systems and crowdsourced reports instead of manual management.
+\item \textbf{Coordination} of all the maintenance staff.
+\item \textbf{Facilitate reports} in a way that users can communicate what's wrong without spending too much time.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subsystems (I)}
+\begin{itemize}
+\item \alert{Task management} Responsible for receiving and analyzing reports. Aspects like task assignments, priority categorization and repair status will be managed by this subsystem.
+\item \alert{Reporting} Will allow users to send reports about discovered faults. It will also detect duplicates before sending them to the task manager.
+\item \alert{Notification \& messaging} Responsible for notifying technicians and users about emergencies, changes and updates in reports. It will also allow private communication channels between reporters and technicians.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Subsystems (II)}
+\begin{itemize}
+\item \alert{User management} Communicates with the UAM login server in order to authenticate users. Keeps a profile on each user who registered within the system, their role and their fault report history.
+\item \alert{Fault history \& stats} Tracks changes in the fault reports and generates statistics based on them, either for the whole system, for each department or even for a specific user of the system. It will also allow visualization of all the reported faults in a campus map.
+\end{itemize}
+\end{frame}
+
 
 \end{document}
