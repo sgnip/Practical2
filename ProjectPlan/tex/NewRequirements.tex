@@ -209,7 +209,7 @@ If the priority is modified, the system will update the priority of every task t
 \reqout The user might be unable to login into the system during the period of time specified by the administrator.
 \end{requirement}
 
-\begin{requirement}{See fault history}
+\begin{requirement}{See fault history}\label{A4-MyFaultHistory}
 \reqdesc Registered users will be able to list the faults they have reported and select one of them.
 \reqin The user that wants to see his/her tasks.
 \reqsteps The system retrieves the list of faults reported by the given user.
@@ -235,8 +235,9 @@ If the priority is modified, the system will update the priority of every task t
 
 \begin{requirement}{Check history of reported fault}
 \reqdesc Registered users will be able to check details of a reported fault.
-\reqin Fault reported object with all information attached.
-\reqout Report showing all the information attached to the object.
+\reqin ID of a fault report contained in the application database.
+\reqsteps The system will look into the database looking for the fault report whose ID is the one introduced by the user. If found, it will retrieve its corresponding information.
+\reqout Report showing all the information related to that fault report, specially its history of status changes.
 \end{requirement}
 
 \begin{requirement}{Tracking incidence impact}
@@ -261,15 +262,6 @@ their resolution date.
 \reqout List of the reports matching with given values, ordered first by category and then by date.
 \end{requirement}
 
-\begin{requirement}{Review single report}
-\reqdesc Users will be able to check details of a reported fault from the full list of reports (given by \ref{A4-ListAllReports}).
-\reqin Fault reported object with all information attached.
-\reqsteps The system retrieves all the information present in the database related to the selected report.
-
-\reqout Report showing all the information attached to the object.
-\end{requirement}
-
-
 \begin{requirement}{Visualize history of tasks}
 \reqdesc Managers will be able to visualize the complete
 history of tasks in a table where each row represents an incidence.
@@ -286,7 +278,7 @@ history of tasks in a table where each row represents an incidence.
 \end{requirement}
 
 \begin{requirement}{Consult extended information about an incidence on the report}
-\reqdesc Managers will be able to consult extended information on each of the incidences that appear in the report of incidences.
+\reqdesc Managers will be able to consult extended information on each of the incidences that appear in the report of incidences (see \ref{A4-MyFaultHistory} and \ref{A4-ListAllReports}).
 \reqin Report of incidences produced by the system. The manager will have to select one of the incidences of the report to see detailed information about it.
 \reqsteps The system will look into the faults database for the selected fault, gather all the information related to it and show it to the manager.
 \reqout The system will show the manager a new screen with detailed information about the incidence he/she has selected in the report.

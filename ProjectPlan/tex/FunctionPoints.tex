@@ -228,7 +228,7 @@ In this section we give more detailed information about the elements that have b
 
 
 
-\subsection{Fault location	EI	0	1}
+\subsection{Fault location}
 \textbf{External Input (EI)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
@@ -240,7 +240,7 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 0 RET/FTR and 1 DET.
 
-\subsection{Incidences report	EI	1	9}
+\subsection{Incidences report}
 \textbf{External Input (EI)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
@@ -260,7 +260,7 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 9 DET.
 
-\subsection{Store report	ILF	1	9}
+\subsection{Store report}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
@@ -279,7 +279,7 @@ In this section we give more detailed information about the elements that have b
 \item Photography of the fault.
 \item ID of the reporter.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 7 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
 
 
 \section{Notification and Messaging System}
@@ -378,11 +378,20 @@ In this section we give more detailed information about the elements that have b
 \textbf{External Query (EQ)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item
+\item List of incidences in the application database, related to an user,
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item
+\item ID of the fault.
+\item Location of the fault.
+\item Category of the fault.
+\item Subject of the fault.
+\item Description of the fault.
+\item Status of the fault.
+\item Priority of the fault.
+\item Timestamp of the report.
+\item Photography of the fault.
+\item ID of the reporter.
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
 
@@ -436,7 +445,7 @@ In this section we give more detailed information about the elements that have b
 \item Category of the fault.
 \item Subject of the fault.
 \item Description of the fault.
-\item Status of the fault.
+\item Current status of the fault and its timestamp of last change.
 \item Priority of the fault.
 \item Timestamp of the report.
 \item Photography of the fault.
@@ -507,27 +516,6 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
 
-\subsection{Review single report}
-\textbf{External Query (EQ)} \\ 
-\textbf{RET/FLR}
-\begin{itemize}
-\item Detailed information about an specific indicence from the report.
-\end{itemize}
-\textbf{DET}
-\begin{itemize}
-\item ID of the fault.
-\item Location of the fault.
-\item Category of the fault.
-\item Subject of the fault.
-\item Description of the fault.
-\item Status of the fault.
-\item Priority of the fault.
-\item Timestamp of the report.
-\item Photography of the fault.
-\item ID of the reporter.
-\item ID of the assigned technician.
-\end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
 
 \subsection{Visualize history of tasks}
 \textbf{External Query (EQ)} \\ 
