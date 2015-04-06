@@ -96,18 +96,52 @@ This way, we have that the AFP of each subsystem, as well as the total AFP for t
 \end{table}
 
 
+\subsection{Time Estimation}
 
-Taking into account 
+Taking into account all the elements shown in the tables of the previous section and that every Adjusted Function Point implies an estimated effort of \textbf{1.615 person-day}, then we can estimate the time needed to develop every subsystem, and therefore, the whole system itself.
 
+The next tables show a summary for every subsystem estimated time:
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/TaskManagementTimeEstimate.tex}
+\caption{Estimated size (person-day) for the Task Management subsystem.}
+\end{table}
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/ReportSystemTimeEstimate.tex}
+\caption{Estimated size (person-day) for the Report System subsystem.}
+\end{table}
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/NotificationMessagingTimeEstimate.tex}
+\caption{Estimated size (person-day) for the Notification Messaging subsystem.}
+\end{table}
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/UserManagementTimeEstimate.tex}
+\caption{Estimated size (person-day) for the User Management subsystem.}
+\end{table}
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/FaultHistoryStatisticsTimeEstimate.tex}
+\caption{Estimated size (person-day) for the Fault History and Statistics subsystem.}
+\end{table}
 
 \begin{table}[hbtp]
 \centering
 \input{../CommonTex/FunctionPointsTimeEstimate.tex}
-\caption{Estimation of the project size based on the function points detailed in table \ref{tbl_GLOBAL_UFP}.}
+\caption{Estimated size (person-day) for the whole FML system.}
 \label{tbl_FPEstimation}
 \end{table}
 
-Tables \ref{tbl_GLOBAL_UFP} and \ref{tbl_FPEstimation} detail the estimation of the project size and time required for its completion based on the method of function points. Based on these calculations, the project would consist of approximately 207 adjusted function points. That would translate to 335 person-days of development time.
+Tables \ref{tbl_GLOBAL_UFP} and \ref{tbl_FPEstimation} detail the estimation of the project size and time required for its completion based on the method of function points. 
+
+Based on these calculations, the project would consist of approximately 207 adjusted function points. That would translate to 330.429 person-days of development time.
 
 \subsection{Estimation using CoCoMo II method}
 
