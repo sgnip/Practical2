@@ -90,9 +90,10 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
+\item Fault's ID.
 \item New status of the incidence.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 2 DET.
 
 \subsection{Changes of incidence category}
 \textbf{Internal Logic File (ILF)} \\ 
@@ -102,9 +103,10 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
+\item Fault's ID.
 \item New category of the incidence.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and2 DET.
 
 \subsection{Reassignment of tasks }
 We have divide this requirement in two parts. The updating requirement to be more precise and specific with RET and DETs associated.
@@ -117,8 +119,9 @@ We have divide this requirement in two parts. The updating requirement to be mor
 \textbf{DET}
 \begin{itemize}
 \item ID of the new technician assigned to this task.
+\item Fault's ID.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 2 DET.
 
 \subsubsection{Reassignment of tasks (Notifying)}
 \textbf{Internal Logic File (ILF)} \\ 
@@ -242,7 +245,7 @@ We have divide this requirement in two parts. The updating requirement to be mor
 \textbf{DET}
 \begin{itemize}
 \item Category to modify.
-\item New priority of the category to modify.
+\item New priority of the category to be modified.
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 2 DET.	
 
@@ -316,10 +319,10 @@ We have divide this requirement in two parts. The updating requirement to be mor
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item List of technicians affected.
-\item List of reporters affected.
-\item List of chiefs affected.
-\item List of faults (assigned or deleted or completed...)
+\item List of technician's IDs affected.
+\item List of reporter's IDs affected.
+\item List of chief's IDs affected.
+\item List of fault's IDs (assigned or deleted or completed...)
 \item Name of category deleted.
 \item Name of category created.
 \item Identifier of the notification received.
@@ -336,10 +339,10 @@ We have divide this requirement in two parts. The updating requirement to be mor
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item List of technicians affected.
-\item List of reporters affected.
-\item List of chiefs affected.
-\item List of faults (assigned or deleted or completed...)
+\item List of technician's IDs affected.
+\item List of reporter's IDs affected.
+\item List of chief's IDs affected.
+\item List of fault's IDs (assigned or deleted or completed...)
 \item Name of category deleted.
 \item Name of category created.
 \item Identifier of the notification received.
@@ -375,7 +378,7 @@ We have divide this requirement in two parts. The updating requirement to be mor
 \item Fault's ID in which conversation takes place.
 \item Reporter's ID.
 \item Technician's ID.
-\item Description message.
+\item Message.
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 4 DET.
 
