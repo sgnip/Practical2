@@ -1,22 +1,198 @@
 % -*- root: ../ProjectPlan.tex -*-
 \section{Size estimation}
-\subsection{Estimation using function points}
 
+Estimations of time and complexity of the system are basic in order to make a project plan adjusted to the real development time. On the contrary, we won't have any basis to aproximate that time, depending just on a correct planification guided by previous experiences.
+
+With this aim, the size of the Fault Manager Lite project has been estimated using the Function Points estimation technique. Moreover, we have also estimated the Report System (subsystem of FML) with the COCOMO II tool.
+
+\section{Estimation using function points}
+\subsection{Unadjusted Function Points}
+After the evaluation of the requirements of the proposed system using the Function Points analysis, we have obtained the data of its estimated complexity. We attach tables with the size of the different subsystems in which the application is divided into, with their corresponding estimations in terms of Function Points. For a more detailed analysis of each of the exposed requirements, see \ref{chapFunctionPoints}.
+
+
+\subsubsection{Task Management Subsystem}
+Table \ref{tbl_TMS_UFP} shows the summary of the unadjusted Function Points calculated for the Task Management Subsystem.
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the Unadjusted Function Points for the Task Management Subsystem.}
+\label{tbl_TMS_UFP}
+\end{table}
+
+\subsubsection{Report System Subsystem}
+Table \ref{tbl_RSS_UFP} shows the summary of the unadjusted Function Points calculated for the Report System Subsystem.
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the Unadjusted Function Points for the Report System Subsystem.}
+\label{tbl_RSS_UFP}
+\end{table}
+
+\subsubsection{Notification and Messaging System Subsystem}
+Table \ref{tbl_NMSS_UFP} shows the summary of the unadjusted Function Points calculated for the Notification and Messaging System Subsystem.
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the Unadjusted Function Points for the Notification and Messaging System Subsystem.}
+\label{tbl_NMSS_UFP}
+\end{table}
+
+\subsubsection{User Management Subsystem}
+Table \ref{tbl_UMS_UFP} shows the summary of the unadjusted Function Points calculated for the User Management Subsystem.
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the Unadjusted Function Points for the User Management Subsystem.}
+\label{tbl_UMS_UFP}
+\end{table}
+
+\subsubsection{Faults History and Statistics Subsystem}
+Table \ref{tbl_FHSS_UFP} shows the summary of the unadjusted Function Points calculated for the Faults History and Statistics Subsystem.
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{c}{} & \multicolumn{6}{|c|}{\textsc{Complexity}} & \multicolumn{1}{c}{}  \\ \cline{2-8}
+\multicolumn{1}{c|}{} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \textbf{Low} & \textbf{Medium} & \textbf{High} & \multirow{2}{*}{\textit{Unadjusted FP}} \\ \cline{1-7}
+\textbf{Data fns.} & \multicolumn{3}{|c|}{\textit{Frequency}} &  \multicolumn{3}{|c|}{\textit{Weight}} & \\ \hline
+ILF 	& 16 & 0 & 0 & 7 & 10 & 15 & 112 	\\ \hline
+EIF 	& 1  & 0 & 0 & 5 & 7  & 10 & 5		\\ \hline
+\textbf{Transactional fns.} & \multicolumn{7}{|c|}{} \\ \hline
+EI 		& 2  & 0 & 0 & 3 & 4  & 6  & 6 		\\ \hline
+EO 		& 0  & 3 & 0 & 4 & 5  & 7  & 15		\\ \hline
+EQ		& 15 & 0 & 0 & 3 & 4  & 6  & 45		\\ \hline
+\multicolumn{6}{c|}{} & \textbf{Total} & 183 \\ \cline{7-8}
+\end{tabular}
+\caption{Overview of the calculation of the Unadjusted Function Points for the Faults History and Statistics Subsystem.}
+\label{tbl_FHSS_UFP}
+\end{table}
+
+\subsubsection{Global Estimation}
+Table \ref{tbl_GLOBAL_UFP} shows the summary of the unadjusted Function Points of the whole system, given by the sum of the unadjusted FP of each subsystem.
 \begin{table}[hbtp]
 \centering
 \input{../CommonTex/FunctionPointsSize.tex}
-\caption{Overview of the calculation of the function points for the system}
-\label{tblFunctionPoints}
+\caption{Overview of the calculation of the Unadjusted Function Points for the whole system.}
+\label{tbl_GLOBAL_UFP}
 \end{table}
+
+\emph{The number of Unadjusted Function Points of the system is XXXX.}
+
+
+\subsection{Adjusting Factor}
+Once the unadjusted Function Points of the project have been calculated, these must be ponderated depending of the technical characteristics of the system. To do this, we have evaluated the 14 adjusting characterístics involved in the Function Points method in order to extract the Adjusting Factor for this system.
+
+Table \ref{tbl_ADJ_FACTOR} shows the summary of the values assigned to the general characteristics of the system.
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{l|c}
+\textbf{Complexity Factors} & \textbf{Value} \\ \hline
+Data communication & 4 \\
+Distributed functions & 3 \\
+Performance & 1 \\
+Strongly used configurations & 2 \\
+Transactions frequency & 4 \\
+Online data input & 4 \\
+Design for the efficiency of the final user & 3 \\
+Online update & 3 \\
+Complex processes & 3 \\
+Other systems utilization & 3 \\
+Installation ease & 5 \\
+Operation ease & 2 \\
+Multiple sites instalation & 3 \\
+Change ease & 5 \\ \hline
+\textit{TOTAL DEGREE OF INFLUENCE (TDI)} & \textit{45.0}
+\end{tabular}
+\caption{Complexity Factor values.}
+\label{tbl_FPEstimation}
+\end{table}
+
+Therefore, the TDI is 45.0. The Adjusting Factor (AF) is calculated applying the corresponding formula:
+\emph{AF = (TDI x 0.01) + 0.65 = 1.10}
+
+\emph{The Adjusting Factor of the system is 1.10.}
+
+\subsection{Adjusted Function Points}
+Once we have obtained the Unadjusted Function Points, UFP, and the Adjusting Factor, AF, we have that the Adjusted Function Points, AFP, are:
+\emph{AFP = UFP x AF}
+
+This way, we have that the AFP of each subsystem, as well as the total AFP for the project are the ones exposed in Table \ref{tbl_GLOBAL_AFP}.
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{l|c|c}
+\textbf{Subsystem} & \textbf{UFP} & \textbf{AFP} \\ \hline
+Task Management  & X & X \\
+Report System & X & X \\
+Notification and Messaging System & X & X \\
+User Management & X & X \\
+Faults History and Statistics & X & X \\
+Raw function points (FP) & X & X \\ \hline
+\textit{Total} & \textit{325.1} & \textit{325.1}
+\end{tabular}
+\caption{Adjusted Function Points organized by subsystems.}
+\label{tbl_GLOBAL_AFP}
+\end{table}
+
+
 
 \begin{table}[hbtp]
 \centering
 \input{../CommonTex/FunctionPointsTimeEstimate.tex}
-\caption{Estimation of the project size based on the function points detailed in table \ref{tblFunctionPoints}.}
-\label{tblFPEstimate}
+\caption{Estimation of the project size based on the function points detailed in table \ref{tbl_GLOBAL_UFP}.}
+\label{tbl_FPEstimation}
 \end{table}
 
-Tables \ref{tblFunctionPoints} and \ref{tblFPEstimate} detail the estimation of the project size and time required for its completion based on the method of function points. Based on these calculations, the project would consist of approximately 207 adjusted function points. That would translate to 335 person-days of development time.
+Tables \ref{tbl_GLOBAL_UFP} and \ref{tbl_FPEstimation} detail the estimation of the project size and time required for its completion based on the method of function points. Based on these calculations, the project would consist of approximately 207 adjusted function points. That would translate to 335 person-days of development time.
 
 \subsection{Estimation using CoCoMo II method}
 
