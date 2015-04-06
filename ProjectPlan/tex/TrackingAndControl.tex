@@ -27,3 +27,29 @@ It is mandatory that the responsible of each phase and the manager are present i
 \caption{Planned project meetings.}
 \label{tblPlannedMeetings}
 \end{table}
+
+If delays in the schedule are detected, the project manager will try to mitigate them taking corrective measures. He/she will notify employees involved in the project in order to rearrange their individual schedule to accommodate the delay and to avoid its propagation to the whole project, instead restraining it to one or two phases.
+
+If the rearrangement can't be done and the delay is going to affect the whole project, a general meeting will be hold where the schedule will be readjusted and measures will be taken to correct the delay and its subjacent causes.
+
+\section{Verifications at each phase}
+
+At the end of each increment, a general meeting will evaluate the corresponding deliverables, ensuring they hold to Triforce quality standards and best practices.
+
+The analysis and design will be reviewed by all the senior employees involved in the project, in order to detect flawed designs, discuss possible points of conflict and manage every corner case. Obviously, the design will be evaluated to ensure it's flexible, extensible and can accommodate changing requirements and other modifications.
+
+The code and executable will be tested with the usual Triforce testing practices:
+
+\begin{itemize}[noitemsep]
+\item Code reviews.
+\item Coding style enforcement by the source control system.
+\item Unit tests - automatically executed by the CI (Continous Integration) server.
+\item Load tests - periodically executed by the CI server.
+\item Static code analysis.
+\end{itemize}
+
+Given the characteristics of the project (accessible over the Internet, accesses personal data), once each increment of the system is deployed, a security team will perform a penetration test to find weak points in the application. Those weak points will be reported together with the possible mitigations for them.
+
+As each increment should be functional, the UAM will be able to choose a limited group of testers that will use the application and report any bug or missing feature, taking into account the scope of each increment. These testers will also be useful for the continuous testing of the usability of the system.
+
+

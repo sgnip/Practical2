@@ -91,6 +91,11 @@ FML unifies a fault report system with a task manager with the aim of speeding u
 
 \begin{frame}
 \frametitle{Size estimation \hfill \emph{Function points - Subsystem breakdown}}
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/AllSubsystemsFP.tex}
+\caption{Breakdown of unadjusted (UFP) and adjusted (AFP) function points for each subsystem.}
+\end{table}
 \end{frame}
 
 \subsection{Cost estimation}
@@ -118,6 +123,22 @@ A sample of the cost estimation, based on the most critical subsystem, the fault
 \section{Project planning}
 
 \section{Project control \& tracking procedure}
+
+\begin{frame}
+\frametitle{Progress monitorization}
+At the end of each phase of each increment, the corresponding deliverables will be reviewed in a meeting hold by the responsible of the phase.
+
+The team will be in permanent communication, so delays will be detected and corrected quickly. The schedule has been made in a way that small delays will be accommodated and won't affect the global times of the project.
+
+If deemed necessary, a general meeting will decide on bigger delays that affect the whole project.
+\end{frame}
+
+\begin{frame}
+\frametitle{Verification \& testing}
+Standard Triforce practices apply. The project will be ready for CI (continuous integration): code analysis, load and unit tests will be performed automatically. Source control system will enforce code reviews and adherence to the coding style.
+
+The security and usability teams will review and evaluate the application to find issues and report them to the development team with the suggested corrections and/or mitigations.
+\end{frame}
 
 \section{Conclusions}
 
