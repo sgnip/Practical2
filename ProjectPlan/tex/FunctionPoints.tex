@@ -106,7 +106,9 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
 
-\subsection{Reassignment of tasks (Updating)}
+\subsection{Reassignment of tasks }
+We have divide this requirement in two parts. The updating requirement to be more precise and specific with RET and DETs associated.
+\subsubsection{Reassignment of tasks (Updating)}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
@@ -118,18 +120,22 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 1 DET.
 
-\subsection{Reassignment of tasks (Notifying)}
+\subsubsection{Reassignment of tasks (Notifying)}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ?????????????????
-\item ?????????????????
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ???????????????
+\item ID of the new technician assigned to this task.
+\item ID of the old technician assigned to this task.
+\item Message to the new technician.
+\item Message to the old technician.
+\item Fault's ID.
+
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 6 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 5 DET.
 
 \subsection{Modify notices of incidences}
 \textbf{Internal Logic File (ILF)} \\ 
@@ -148,17 +154,34 @@ In this section we give more detailed information about the elements that have b
 \end{itemize}
 \textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 6 DET.
 
-\subsection{Assignment of incidences (Automatic or manual)}
+\subsection{Manual assignment of incidence}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????
+\item Incidence in the application database.
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ??????????????
+\item Fault's ID.
+\item ID of the technician assigned.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 3 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 2 DET.
+
+\subsection{Automatic assignment of incidences}
+\textbf{Internal Logic File (ILF)} \\ 
+\textbf{RET/FLR}
+\begin{itemize}
+\item Incidence in the application database.
+\item Application database.
+\end{itemize}
+\textbf{DET}
+\begin{itemize}
+\item Fault's ID.
+\item ID of the technician assigned.
+\end{itemize}
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 2 RET/FTR and 2 DET.
+
 
 \subsection{Filtering list of categories}
 \textbf{External Query (EQ)} \\ 
@@ -193,9 +216,10 @@ In this section we give more detailed information about the elements that have b
 \item ID of the person in charge of the new department.
 \item Description of the new category.
 \item Priority level of the new category.
-\item ???????????????
+
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 8 DET.
+% % % I thought of 8 including chief's information. If we just add with an ID thats great.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 5 DET.
 
 \subsection{Delete categories}
 \textbf{Internal Logic File (ILF)} \\ 
@@ -288,50 +312,72 @@ In this section we give more detailed information about the elements that have b
 \textbf{External Query (EQ)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ????????????????
+\item List of technicians affected.
+\item List of reporters affected.
+\item List of chiefs affected.
+\item List of faults (assigned or deleted or completed...)
+\item Name of category deleted.
+\item Name of category created.
+\item Identifier of the notification received.
+\item Description.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 8 DET.
 
 
 \subsection{Receive general notification}
 \textbf{External Query (EQ)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ????????????????
+\item List of technicians affected.
+\item List of reporters affected.
+\item List of chiefs affected.
+\item List of faults (assigned or deleted or completed...)
+\item Name of category deleted.
+\item Name of category created.
+\item Identifier of the notification received.
+\item Description.
+
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 10 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 8 DET.
 
 \subsection{Send messages to users}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
+\item Message to send.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ????????????????
+\item Fault's ID in which conversation takes place.
+\item Reporter's ID.
+\item Technician's ID.
+\item Description message.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 14 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 4 DET.
 
 \subsection{Read messages}
-\textbf{Internal Logic File (ILF)} \\ 
+\textbf{Internal Logic File (EQ)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ????????????????
+\item Fault's ID in which conversation takes place.
+\item Reporter's ID.
+\item Technician's ID.
+\item Description message.
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 14 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 4 DET.
 
 
 
@@ -354,25 +400,29 @@ In this section we give more detailed information about the elements that have b
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
+
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
-\item ????????????????
+\item Misbehaving user's ID.
+\item Description of the reason of reporting the user.
+\item Reporter's ID.
+
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 11 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
 
 \subsection{Ban an user from the system}
 \textbf{Internal Logic File (ILF)} \\ 
 \textbf{RET/FLR}
 \begin{itemize}
-\item ????????????????
+\item Application database.
 \end{itemize}
 \textbf{DET}
 \begin{itemize}
 \item ????????????????
 \end{itemize}
-\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 3 RET/FTR and 11 DET.
+\textbf{\underline{Conclusion:}} It has a \textbf{LOW} complexity with 1 RET/FTR and 11 DET.
 
 \subsection{See fault history}
 \textbf{External Query (EQ)} \\ 
