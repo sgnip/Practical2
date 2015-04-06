@@ -1,8 +1,9 @@
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress,usetitleprogressbar,aspectratio=1610]{beamer}
 
 \usetheme{m}
 \usepackage[scale=2]{ccicons}
 \usepackage{minted}
+\usepackage{hyperref}
 
 \usemintedstyle{trac}
 
@@ -11,8 +12,13 @@
 % - Xelatex
 % - Fira fonts (http://www.carrois.com/fira-4-0/#download, install Sans and Mono)
 % - Pygments (sudo pip install pygments, if pip is not installed do sudo apt-get install python-pip)
-% - The Makefile takes care of the compilation options. Make continous adds the -pvc option for continuous preview
+% - The Makefile takes care of the compilation options. Make continuous adds the -pvc option for continuous preview
 
+\hypersetup{
+  hyperindex,
+    colorlinks,
+    allcolors=blue!60!black
+}
 
 \title{Fault Manager Lite}
 \subtitle{Project plan - Goals, estimations and planning}
