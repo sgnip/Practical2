@@ -22,13 +22,13 @@
 
 \setcounter{secnumdepth}{3}
 
-\title{SOFTWARE ENGINEERING PROJECT\\Assignment 1 - Reflective Document}
+\title{SOFTWARE ENGINEERING PROJECT\\Assignment  - Reflective Document}
 \date{\today}
-\author{Practicals Group 2451 - Team n. 3 \\ \vspace{5pt} \textit{Iván Márquez Pardo, Víctor de Juan Sanz, Guillermo Julián Moreno}}
+\author{Practical Group 2451 - Team n. 3 \\ \vspace{5pt} \textit{Iván Márquez Pardo, Víctor de Juan Sanz, Guillermo Julián Moreno}}
 
 \fancyhf{}
 \fancypagestyle{plain}{%
-	\lhead{\small \itshape Assignment 1 - Reflective Document \, -\, \thedate\, -\, SEPRO}
+	\lhead{\small \itshape Assignment 2 - Reflective Document \, -\, \thedate\, -\, SEPRO}
 	\rhead{\vspace{-20pt} \includegraphics[width =40 pt]{../Logo.jpg}}
 	\cfoot{\thepage\ of \pageref{LastPage}}
 	\rfoot{}
@@ -42,39 +42,43 @@
 
 \noindent
 \header{Date} \today.
-\header{Deliverable} Practical assignment 1.
-\header{Submission date} February 23, 2015.
+\header{Deliverable} Practical assignment 2.
+\header{Submission date} April 7, 2015.
 
 \section{Content and procedure}
 
-The assignment required the development of a proposal for a maintenance management system targeted to the UAM maintainers. The \textbf{procedure} followed began with a brainstorming that produced the initial ideas for the proposal. Then we carried out a research on the Internet looking for products with similar functionalities to those we wanted to offer, and extracted new ideas or improvements to include in our own project. We divided the work between all the team members and started developing the requirements, project definition and design for the Technical Report.
+The assignment required the development of a project plan. The project that had to be planned was a maintenance management system targeted to the UAM maintainers.
 
-The interview with a member of the maintenance system helped to better comprehend the problem and clarify some obscure details that we still had. All the information and ideas for the project we had were summarized in our presentation and written down in our Software Requirements Specification document.
+The \textbf{procedure} began with the compilation of the requirements present in the statement and in our proposal in assignment 1. Once all the requirements were written up, we formatted them in the input-steps-output format.
 
-As we had to deliver an oral presentation of our proposal, we prepared the slides based on what we had in our technical report. This was really advantageous and a \textbf{strength} of our procedure as we had everything prepared for the presentation, so we didn't have problems in explaining what we had done.
+When all the requirements were expressed in those terms, we discussed their complexity and applied the function points method in order to get an estimate for the size of the system. Based on that data, we applied Cocomo II using the CoStart tool to one of the subsystems to estimate its cost. We also planned the schedule using Microsoft Project, generating a Gantt diagram with the planning for the development.
+
+The slides prepared for the presentation were based in what we had already written in the Project Plan, with lots of \LaTeX\ code being shared between the those documents. This was really advantageous and a \textbf{strength} of our procedure as we had everything prepared for the presentation, so we didn't have problems writing down and explaining what we had done.
 
 \section{Identified problems}
 
-The first days were quite \textbf{chaotic} in terms of coordination (this project has been the first time the three of us have worked together in an assignment, and writing an SRS is not something we are used to do). But from the second week, we started working as a real team. This implies that for future assignments, we will be able to do our best from the beginning.
+One of the biggest problems we've found is the underestimation of the complexity of some parts of the assignment. Our first reading of the statement of the assignment wasn't too deep and we didn't take into account all the work that had to be done with the requirements and its adaptation to the function points method.
 
-Sometimes we had some very shorts meetings or asked questions through instant messaging apps in order to clarify some parts of our assigned work and be able to continue working on them instead of saving those questions for the announced \textbf{Meeting Minutes}. The result was that not all our meetings appear on Appendix C (Meetings); only the most important and longest appear.
+Because of this, we delayed the calculation of the function points and the development of the Gantt diagram. We should organize better learning how to use a planning tool under pressure is not the best thing.
 
-As a possible \textbf{improvement} of our procedure, we think that we should plan ahead and distribute the work in the first day of the assignment to avoid the \textbf{problem} of accumulated work near the deadlines.
+As a possible \textbf{improvement} of our procedure, we think that we should understand completely the assignment before starting to work and planning ahead instead of rereading the statement and discovering aspects we forgot.
+
+Another aspect is the tooling proposed to do Cocomo II estimations is a little bit outdated and too cryptic: there are a lot of abbreviations and technical terms that can't be understood unless one has the Cocomo II specification in another window.
 
 \section{Acquired knowledge}
 
-With this assignment we have learned to do a real analysis of a real-world problem and design a software product that potentially solves it. We never had the chance of thinking in a big application like this one and it is quite different to the software we are used to develop.
+With this assignment we have learned how to plan and schedule a project given a set of requirements, using established tools and algorithms. We've made an idea of how much can a project cost and last (even though we consider our estimations a little bit overblown in terms of cost and time).
 
-Thinking in all possible details of the application has been a good experience. We know we have missed some of them, but during the time we have been working, we realized we had missed others that ended up included in the proposal. We can imagine now with a better perspective how a Software Engineering's work is, at least regarding the Analysis and Design parts of the life cycle of a software product.
+We've also learned different methods to estimate the size and cost of a project, and, what we consider the most important lesson, we've learned how to convert a set of requirements to estimations and schematics of the final system.
+
+However, we can't help but think about the utility of these lessons. As we said before, the estimations seem too high. Almost 300 days of development for a project that is not excessively complex (we're talking about a CRUD\footnote{Create, Read, Update, Delete.} web application, basically a database interface) and is neither too big doesn't seem like an adjusted estimation, at least taking into account the current web technologies.
+
+Also, the way the statement has been exposed, an iterative waterfall lifecycle model has been imposed, and this creates situations that we deem unreal. For example, we think that having coding and unit testing as separated tasks is a bad practice, or directly a show-stopper if practices like TDD\footnote{Test-Driven Development} are going to be implemented. Also, given that this is a web application and that currently the amount of continuous integration solutions for these kind of system is more than enough, planning for 4-8 days of deployment seems completely redundant if not a waste of time.
+
+In other words, we think that, even if this assignment has had some valuable lessons, it doesn't reflect the possibilities that modern tools and practices put within our reach to speed up development while maintaining or even improving its quality.
 
 \section{Reflections on future assignments}
 
-For our future assignments, we will have meetings after math class as we have had sometimes in this assignment: we're free during that, we all are in the same place and, even more important, those meetings were more productive than the ones had in EPS or even in class.
-
-For future assignments of the course, we recommend having some time in all the classes to work in the assignments or at least to distribute work for the week. We would like more this than some classes with no working time, and some others were all the time is for working in our assignments.
-
-\section{Observations}
-
-Our project may not satisfy the minimum amount of pages stipulated in the statement, but we consider that we have written down every issue we needed in order to completely describe our project proposal.
+For future assignments of the course, we will organize ourselves better taking into account the full statement, without underestimating any part of it.
 
 \end{document}
