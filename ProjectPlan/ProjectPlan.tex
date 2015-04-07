@@ -112,9 +112,9 @@ The intended audience of this document is the executive team of Triforce, in ord
 
 The document is structured as follows. This chapter serves as introduction and description of the document and its contents. Chapter \ref{chapSubsystems} contains the definition of the subsystems that will conform the project and their associated requirements.
 
-In chapter \ref{chapProjectSizeEstimations} we present the estimations for the size of the system. Chapter \ref{chapProjectCostTimeEstimationes} reflects the estimates for the cost and for the development time. Our planned schedule is presented in chapter \ref{chapPlan} and, finally, chapter \ref{chapTracking} shows the proposal for the project tracking and control.
+In chapter \ref{chapProjectSizeEstimations} we present the estimations for the size of the system. Our planned schedule and cost estimations is presented in chapter \ref{chapPlan} and, finally, chapter \ref{chapTracking} shows the proposal for the project tracking and control.
 
-The appendices contain extra information, such as detailed function point estimation (appendix \ref{chapFunctionPoints}).
+The appendices contain extra information, such as detailed function point estimation (appendix \ref{chapFunctionPoints}), Cocomo II Cost estimation (appendix \ref{chapCocomo}) and the detailed Gantt diagram (appendix \ref{chapGantt}).
 
 \chapter{Subsystems and Requirements}
 \label{chapSubsystems}
@@ -125,13 +125,10 @@ The appendices contain extra information, such as detailed function point estima
 \label{chapProjectSizeEstimations}
 \input{tex/SystemSize.tex}
 
-\chapter{Project Cost \& Time Estimations}
-\label{chapProjectCostTimeEstimationes}
-\input{tex/SystemCost.tex}
-
 \chapter{Project Plan}
 \label{chapPlan}
 \input{tex/Planning.tex}
+\input{tex/SystemCost.tex}
 
 \chapter{Project Tracking \& Control}
 \label{chapTracking}
@@ -145,6 +142,7 @@ The appendices contain extra information, such as detailed function point estima
 \input{tex/FunctionPoints.tex}
 
 \chapter{Cocomo II Cost Estimation}
+\label{chapCocomo}
 \begin{table}[hbtp]
 \centering
 \input{../CommonTex/CocomoCostFaultReport.tex}
@@ -154,7 +152,7 @@ The appendices contain extra information, such as detailed function point estima
 
 
 \chapter{Gantt Diagram}
-
+\label{chapGantt}
 Included below is the Gantt diagram generated
 
 \includepdf[scale=0.8, pages={1-}, nup=1x2, pagecommand={}]{../Project.pdf}
