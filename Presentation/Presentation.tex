@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{multicol}
 \usepackage{multirow}
+\usepackage[official]{eurosym}
 
 \usemintedstyle{trac}
 
@@ -100,7 +101,24 @@ FML unifies a fault report system with a task manager with the aim of speeding u
 
 \subsection{Cost estimation}
 \begin{frame}
-\frametitle{Cost estimation \hfill \emph{Development time}}
+\frametitle{Cost estimation \hfill \emph{COCOMO II for the Fault Report subsystem}}
+A sample of the cost estimation, based on the most critical subsystem, the fault reporter. Necessary for a minimum prototype.
+
+\begin{table}[hbtp]
+\centering
+\input{../CommonTex/CocomoCostFaultReport.tex}
+\caption{Cocomo cost estimation for the fault report subsystem.}
+\label{tblFaultReportCost}
+\end{table}
+\end{frame}
+
+\section{Project planning}
+
+\subsection{Effort estimations}
+\begin{frame}
+\frametitle{Time estimation}
+Given the size estimations and Triforce project data, this is the time estimation for the project.
+
 \begin{table}[hbtp]
 \centering
 \input{../CommonTex/FunctionPointsTimeEstimate.tex}
@@ -109,18 +127,19 @@ FML unifies a fault report system with a task manager with the aim of speeding u
 \end{table}
 \end{frame}
 
+\subsection{Increment planning}
 \begin{frame}
-\frametitle{Cost estimation \hfill \emph{COCOMO II for the Fault Report subsystem}}
-A sample of the cost estimation, based on the most critical subsystem, the fault reporter. Necessary for a MVP.
+\frametitle{Increment planning}
+
+Our schedule consists of N increments, detailed in the following table:
 
 \begin{table}[hbtp]
-\input{../CommonTex/CocomoCostFaultReport.tex}
-\caption{Cocomo cost estimation for the fault report subsystem.}
-\label{tblFaultReportCost}
+\centering
+\input{../CommonTex/IncrementOutline.tex}
+\caption{Planned increments for the development.}
+\label{tblIncrements}
 \end{table}
 \end{frame}
-
-\section{Project planning}
 
 \section{Project control \& tracking procedure}
 
@@ -135,7 +154,7 @@ If deemed necessary, a general meeting will decide on bigger delays that affect 
 
 \begin{frame}
 \frametitle{Verification \& testing}
-Standard Triforce practices apply. The project will be ready for CI (continuous integration): code analysis, load and unit tests will be performed automatically. Source control system will enforce code reviews and adherence to the coding style.
+Standard Triforce practices apply. The project will be ready for CI (continuous integration): static code analysis, load and unit tests will be performed automatically. Source control system will enforce code reviews and adherence to the coding style.
 
 The security and usability teams will review and evaluate the application to find issues and report them to the development team with the suggested corrections and/or mitigations.
 \end{frame}
@@ -149,7 +168,8 @@ The security and usability teams will review and evaluate the application to fin
 \item Fault Manager Lite will be able to fulfill the \textbf{required goals}: improve the fault reporting system and facilitate efficient allocation of resources in order to reduce fault detection and repair time.
 \item A testable prototype can be delivered in \textbf{X days}. A final version of the system can be finished in \textbf{Y days}.
 \item Estimated cost for the whole project is \textbf{Z million dollars}.
-\item Project progress will be tracked based on \textbf{things}.
+\item \textbf{Project progress} will be tracked during meetings at each increment finalization.
+\item The system will be thoroughly \textbf{tested} with unit tests, code analysis and review, performance tests and dedicated security and usability test teams.
 \end{itemize}
 
 \end{frame}
