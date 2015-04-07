@@ -53,11 +53,11 @@
 
 \newenvironment{requirement}[1]{
 	\refstepcounter{reqs}
-	\subsubsection{\textsc{Functional Requirement \arabic{reqs}} - #1}
+	\par {\noindent \bfseries {\textsc{Functional Requirement \arabic{reqs}} - #1}} \par
 }{\vspace{20pt}}
 
 \newenvironment{NFrequirement}[1]{
-	\subsubsection{\textsc{Non-Functional Requirement \arabic{NFreqs}}}
+	\par {\noindent \bfseries {\textsc{Non-Functional Requirement \arabic{NFreqs}}}} \par
 	\refstepcounter{NFreqs}
 }{\vspace{20pt}}
 

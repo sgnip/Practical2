@@ -1,6 +1,6 @@
 % -*- root: ../ProjectPlan.tex -*-
 
-\chapter{Requirements}
+\section{Requirements}
 \label{chapRequirements}
 
 The functional and non-functional requirements of the Fault Manager Lite application are gathered in the next sections of the document.
@@ -9,9 +9,9 @@ Functional requirements are organized into their corresponding subsystems. If an
 
 In a similar way, non-functional requirements are organized into categories attending to their scope.
 
-\section{Functional Requirements}
+\subsection{Functional Requirements}
 
-\subsection{Task Management}
+\subsubsection{Task Management}
 
 \begin{requirement}{Generate repair task}
 \reqdesc When the report system receives a new fault report, it will analyze the information it contains in order to generate its corresponding repair task. This task will later be automatically assigned to a technician.
@@ -114,7 +114,7 @@ If the priority is modified, the system will update the priority of every task t
 \end{requirement}
 
 
-\subsection{Report System}
+\subsubsection{Report System}
 
 \begin{requirement}{Fault location}
 \label{reqFaultLocation}
@@ -144,7 +144,7 @@ If the priority is modified, the system will update the priority of every task t
 \reqout The reported fault object is stored into the database, and the maintenance personnel is notified of the new fault. The user receives an acknowledgment of the received report.
 \end{requirement}
 
-\subsection{Notification and Messaging System}
+\subsubsection{Notification and Messaging System}
 
 
 \begin{requirement}{Send general notifications}
@@ -186,26 +186,26 @@ If the priority is modified, the system will update the priority of every task t
 \reqout The messages found in the system (if any) that are related to that fault report.
 \end{requirement}
 
-\subsection{User Management}
+\subsubsection{User Management}
 
 \begin{requirement}{Login into the system}
 \reqdesc Every user can login in the application introducing their credentials for the UAM's identification server, confirming they are recognized members of the university.
 \reqin The user's credential for the UAM identification server.
-\reqsteps The system will take the credentials given by the user and resend them to the UAM identification server, which will validate or not that credentials. 
+\reqsteps The system will take the credentials given by the user and resend them to the UAM identification server, which will validate or not that credentials.
 \reqout Depending on the answer of that server, the user will access or not into his account in the application.
 \end{requirement}
 
 \begin{requirement}{Report a misbehaving user}
 \reqdesc When technicians encounter a fake fault report, they can report the user who sent that report as an alert of misbehavior.
 \reqin The identifier of the user to report, that is present in the repair task given to the technician.
-\reqsteps The system will look for the user's identifier in the database and send a notification containing that identifier and the fake fault report to the administrator, who will decide if the user must be baned or not. 
+\reqsteps The system will look for the user's identifier in the database and send a notification containing that identifier and the fake fault report to the administrator, who will decide if the user must be baned or not.
 \reqout Report notification sent to the administrator.
 \end{requirement}
 
 \begin{requirement}{Ban an user from the system}
 \reqdesc Administrator are able to ban any user from the application in order to prevent more misbehaving from those users.
 \reqin The report notification, sent by a technician. The administrator will decide to ban that user or not for an specific period of time: no ban, one week ban, one month ban, indefinitely ban.
-\reqsteps The system will show the report notification sent by a technician and wait for the selection of a ban period of time. 
+\reqsteps The system will show the report notification sent by a technician and wait for the selection of a ban period of time.
 \reqout The user might be unable to login into the system during the period of time specified by the administrator.
 \end{requirement}
 
@@ -231,7 +231,7 @@ If the priority is modified, the system will update the priority of every task t
 \end{requirement}
 
 
-\subsection{Fault History and Statistics}
+\subsubsection{Fault History and Statistics}
 
 \begin{requirement}{Check history of reported fault}
 \reqdesc Registered users will be able to check details of a reported fault.
@@ -300,11 +300,11 @@ detect problematic areas or departments.
 \end{requirement}
 
 
-\section{Non-Functional Requirements}
+\subsection{Non-Functional Requirements}
 
-\subsection{Documentation}
+\subsubsection{Documentation}
 \begin{NFrequirement}{}
-The application will provide access to an user guide, which will be organised as a Wiki system. 
+The application will provide access to an user guide, which will be organised as a Wiki system.
 \end{NFrequirement}
 \begin{NFrequirement}{}
 The user guide will contain key points, basic manuals and FAQs related to the application.
@@ -313,17 +313,17 @@ The user guide will contain key points, basic manuals and FAQs related to the ap
 The application and its documentation will be available in the following languages: Spanish, English, French, Italian, German, Portuguese and Chinese.
 \end{NFrequirement}
 
-\subsection{Security}
+\subsubsection{Security}
 \begin{NFrequirement}{}
 Login in the system will be based in the UAM's authentication system, so connections between this server and ours must be secure for the users in order to protect their credentials.
 \end{NFrequirement}
 
-\subsection{Privacy}
+\subsubsection{Privacy}
 \begin{NFrequirement}{}
 Within the application context, all the user will have a numeric ID of 7 numbers, that will be unique for each user and will warrantee their privacy (i.e. when a reporter is communicating with a technician using the messaging system).
 \end{NFrequirement}
 
-\subsection{Performance (Availability, Resilience, Reliability)}
+\subsubsection{Performance (Availability, Resilience, Reliability)}
 \begin{NFrequirement}{}
 The system will be available 97\% of the time during the university course.
 \end{NFrequirement}
@@ -346,12 +346,12 @@ The system will have a mirror database in case it is needed to recover to a prev
 The mirror database will be updated every Saturday, between 2:00 am and 7:00 am.
 \end{NFrequirement}
 
-\subsection{Usability}
+\subsubsection{Usability}
 \begin{NFrequirement}{}
 Every screen will have buttons or any other resources to go back to the previous screen the user was at.
 \end{NFrequirement}
 
-\subsection{Interface}
+\subsubsection{Interface}
 \begin{NFrequirement}{}
 Apart from the application main screen, only one more additional screen can be opened in order to show detailed information the user has explicitely requested.
 \end{NFrequirement}
@@ -359,9 +359,9 @@ Apart from the application main screen, only one more additional screen can be o
 The manual location of the incident will be specified using a series of dropdown lists, organized as a tree in order of significance (i.e. building, floor, class).
 \end{NFrequirement}
 
-\subsection{Portability}
+\subsubsection{Portability}
 \begin{NFrequirement}{}
-The application will be accesible as a web page from these web browsers: Internet Explorer 7 or later, Firefox 15 or later, Google Chrome 19 or later. 
+The application will be accesible as a web page from these web browsers: Internet Explorer 7 or later, Firefox 15 or later, Google Chrome 19 or later.
 \end{NFrequirement}
 \begin{NFrequirement}{}
 The application will be accesible from its mobile app. Its app can be installed in smartphones/tablets with these Operating Systems: Android v2.3 or later, iOS 4 or later, Windows Phone 7.5 or later.
