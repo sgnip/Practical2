@@ -102,6 +102,26 @@ Fault Manager Lite adopts the usual development model at Triforce: iterative wat
 \end{frame}
 
 \begin{frame}
+\frametitle{Size estimation \hfill \emph{Function points - Complexity}}
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{l|c||l|c}
+\textbf{Complexity Factors} & \textbf{Value} & \textbf{Complexity Factors} & \textbf{Value} \\ \hline
+Data communication & 4 & Distributed functions & 3 \\
+Performance & 1 & Strongly used configurations & 2 \\
+Transactions frequency & 4 & Online data input & 4 \\
+Design for the efficiency of the user & 3 & Online update & 3 \\
+Complex processes & 3 & Other systems utilization & 3 \\
+Installation ease & 5 & Operation ease & 2 \\
+Multiple sites installation & 3 & Change ease & 5 \\ \hline
+\multicolumn{2}{c}{} & \textit{Total degree of influence (TDI)} & \textit{45.0}
+\end{tabular}
+\caption{Complexity factors for the estimation}
+\label{tblComplexity}
+\end{table}
+\end{frame}
+
+\begin{frame}
 \frametitle{Size estimation \hfill \emph{Function points - Subsystem breakdown}}
 \begin{table}[hbtp]
 \centering
